@@ -68,7 +68,7 @@ a { color: inherit; }
 }
 
 .nav-inner {
-  min-height: 74px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,29 +78,25 @@ a { color: inherit; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: .01em;
 }
 
 .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 54px;
+  height: 54px;
   display: grid;
   place-items: center;
-  position: relative;
-  background:
-    linear-gradient(145deg, rgba(102,2,60,.95), rgba(0,206,209,.15));
-  border: 1px solid rgba(0,206,209,.45);
-  clip-path: polygon(14% 0, 100% 0, 100% 72%, 72% 100%, 0 100%, 0 14%);
-  box-shadow: 0 0 30px rgba(0,206,209,.10);
+  flex-shrink: 0;
 }
-
-.brand-mark svg {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 0 8px rgba(0,206,209,.45));
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(0,206,209,.18));
 }
 .brand em { font-style: normal; color: var(--turquoise); }
 
@@ -191,10 +187,6 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   text-shadow: 0 0 28px rgba(0,206,209,.14);
 }
 
-.purple-word {
-  color: #d378a8;
-}
-
 .section {
   padding: 100px 0;
 }
@@ -265,7 +257,8 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
 }
 @media (max-width: 640px) {
   .shell { width: min(100% - 26px, var(--max)); }
-  .nav-inner { min-height: 64px; }
+  .nav-inner { min-height: 70px; }
+  .brand-mark { width: 46px; height: 46px; }
   .nav-cta { display: none; }
   .section { padding: 74px 0; }
   .footer-grid { grid-template-columns: 1fr; }
@@ -351,9 +344,102 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
 }
 .check b { color:var(--turquoise-soft); }
 
+
+.support-form {
+  padding: 42px;
+  margin-bottom: 100px;
+}
+.form-intro {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+.form-intro p {
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.field {
+  display: grid;
+  gap: 8px;
+}
+.field.full {
+  grid-column: 1 / -1;
+}
+.field > span {
+  font-weight: 800;
+  color: #e7e8eb;
+  font-size: .92rem;
+}
+.field small {
+  color: var(--muted-2);
+  font-weight: 600;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  color: var(--white);
+  font: inherit;
+  background:
+    linear-gradient(145deg, rgba(102,2,60,.11), rgba(0,206,209,.025)),
+    #11141b;
+  border: 1px solid rgba(245,245,245,.10);
+  padding: 14px 15px;
+  outline: none;
+  resize: vertical;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #666d79;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(0,206,209,.09);
+  background:
+    linear-gradient(145deg, rgba(102,2,60,.15), rgba(0,206,209,.04)),
+    #12161d;
+}
+.field select option {
+  background: #11141b;
+  color: var(--white);
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+}
+.form-actions button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .94rem;
+}
+.form-status {
+  color: var(--turquoise-soft);
+  font-size: .9rem;
+  min-height: 1.4em;
+}
+.form-note {
+  margin: 18px 0 0;
+  color: #737a86;
+  font-size: .86rem;
+  max-width: 850px;
+}
+
 @media (max-width:940px) {
   .support-hero, .bug-guide { grid-template-columns:1fr; gap:26px; }
   .support-grid { grid-template-columns:1fr; }
+  .form-grid { grid-template-columns:1fr; }
+  .field.full { grid-column:auto; }
+  .support-form { padding:28px; }
 }
 </style>
 </head>
@@ -363,9 +449,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <div class="shell nav-inner">
     <a class="brand" href="/" aria-label="EmberForge home">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.8 2.5c.3 3-1.8 4.4-3.1 6.3-1.5 2.1-2.2 4.1-1.1 6.2.6-2 2.1-3.2 3.8-4.7 1.8-1.6 3.3-3.5 3-6.1 2.5 2.6 4.1 5.7 3.7 9.2-.5 4.5-3.7 7.5-8 7.5-4.4 0-7.4-3-7.4-7.1 0-4.7 3.4-7.3 9.1-11.3Z" stroke="#62EEF0" stroke-width="1.35" stroke-linejoin="round"/>
-        </svg>
+        <img src="/emberforge-mark.png" alt="">
       </span>
       <span>Ember<em>Forge</em></span>
     </a>
@@ -397,14 +481,14 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     <div class="icon">?</div>
     <h2>Get help</h2>
     <p>Setup trouble, configuration questions, account issues, or something that simply refuses to behave.</p>
-    <a class="support-link" href="mailto:ever_forge@outlook.com?subject=EmberForge%20Support">Email EmberForge →</a>
+    <a class="support-link" href="#support-form" data-support-type="support">Open support form →</a>
   </article>
 
   <article class="support-card card reveal">
     <div class="icon">!</div>
     <h2>Report a bug</h2>
     <p>Found something broken or weird? Tell us what happened and, if possible, how to make it happen again.</p>
-    <a class="support-link" href="mailto:ever_forge@outlook.com?subject=EmberForge%20Bug%20Report">Send a bug report →</a>
+    <a class="support-link" href="#support-form" data-support-type="bug">Open bug report →</a>
   </article>
 
   <article class="support-card card reveal">
@@ -415,20 +499,63 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   </article>
 </section>
 
-<section class="shell">
-  <div class="bug-guide card reveal">
-    <div>
-      <div class="eyebrow">Helpful details</div>
-      <h2>Make the bug easier to catch.</h2>
-      <p>You do not need to write a novel. A few specific details are usually enough to point us in the right direction.</p>
+
+<section class="shell" id="support-form">
+  <form class="support-form card reveal" id="emberSupportForm">
+    <div class="form-intro">
+      <div class="eyebrow">Tell us what happened</div>
+      <h2>Send the useful bits.</h2>
+      <p>You can fill this out right here. When you're done, use <strong>Open email app</strong> to create a pre-filled message, or <strong>Copy report</strong> if you'd rather paste it somewhere else.</p>
     </div>
-    <div class="checks">
-      <div class="check"><b>1.</b> What were you trying to do?</div>
-      <div class="check"><b>2.</b> What did you expect to happen?</div>
-      <div class="check"><b>3.</b> What happened instead?</div>
-      <div class="check"><b>4.</b> Screenshots or exact error text, if you have them.</div>
+
+    <div class="form-grid">
+      <label class="field">
+        <span>What do you need help with?</span>
+        <select id="requestType" name="requestType">
+          <option value="General support">General support</option>
+          <option value="Bug report">Bug report</option>
+          <option value="Setup / configuration">Setup / configuration</option>
+          <option value="Account / access">Account / access</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Your email <small>(optional)</small></span>
+        <input id="replyEmail" name="replyEmail" type="email" placeholder="you@example.com">
+      </label>
+
+      <label class="field full">
+        <span>What were you trying to do?</span>
+        <textarea id="trying" name="trying" rows="3" placeholder="Example: I was trying to configure a manager role for Ember Vault."></textarea>
+      </label>
+
+      <label class="field full">
+        <span>What did you expect to happen?</span>
+        <textarea id="expected" name="expected" rows="3" placeholder="What should have happened?"></textarea>
+      </label>
+
+      <label class="field full">
+        <span>What happened instead?</span>
+        <textarea id="actual" name="actual" rows="4" placeholder="Include the exact error text if you have it."></textarea>
+      </label>
+
+      <label class="field full">
+        <span>Anything else we should know? <small>(optional)</small></span>
+        <textarea id="extra" name="extra" rows="3" placeholder="Server name, command used, browser/device, steps to reproduce, etc."></textarea>
+      </label>
     </div>
-  </div>
+
+    <div class="form-actions">
+      <button class="btn primary" type="button" id="openEmail">Open email app</button>
+      <button class="btn secondary" type="button" id="copyReport">Copy report</button>
+      <span class="form-status" id="formStatus" aria-live="polite"></span>
+    </div>
+
+    <p class="form-note">
+      This site is currently static, so the form does not send anything by itself. The buttons above create or copy the report for you without pretending it vanished into a mysterious support database.
+    </p>
+  </form>
 </section>
 </main>
 
@@ -464,7 +591,9 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
 </footer>
 
 <script>
-const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -474,6 +603,57 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const requestType = document.getElementById('requestType');
+const replyEmail = document.getElementById('replyEmail');
+const trying = document.getElementById('trying');
+const expected = document.getElementById('expected');
+const actual = document.getElementById('actual');
+const extra = document.getElementById('extra');
+const statusEl = document.getElementById('formStatus');
+
+document.querySelectorAll('[data-support-type]').forEach(link => {
+  link.addEventListener('click', () => {
+    requestType.value = link.dataset.supportType === 'bug' ? 'Bug report' : 'General support';
+    setTimeout(() => trying.focus(), 250);
+  });
+});
+
+function buildReport() {
+  return [
+    `Request type: ${requestType.value}`,
+    `Reply email: ${replyEmail.value.trim() || 'Not provided'}`,
+    '',
+    'What I was trying to do:',
+    trying.value.trim() || '(not provided)',
+    '',
+    'What I expected:',
+    expected.value.trim() || '(not provided)',
+    '',
+    'What happened instead:',
+    actual.value.trim() || '(not provided)',
+    '',
+    'Anything else:',
+    extra.value.trim() || '(not provided)'
+  ].join('
+');
+}
+
+document.getElementById('openEmail').addEventListener('click', () => {
+  const subject = `EmberForge ${requestType.value}`;
+  const body = buildReport();
+  window.location.href = `mailto:ever_forge@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  statusEl.textContent = 'Opening your email app...';
+});
+
+document.getElementById('copyReport').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(buildReport());
+    statusEl.textContent = 'Copied. Ready to paste.';
+  } catch (err) {
+    statusEl.textContent = 'Could not copy automatically.';
+  }
+});
 </script>
 </body>
 </html>
