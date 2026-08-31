@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b0d12">
 <title>Support | EmberForge</title>
+<script>document.documentElement.classList.add('js');</script>
 <meta name="description" content="Get help with EmberForge and Ember Vault.">
 <style>
 
@@ -248,8 +249,9 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   font-size: .86rem;
 }
 
-.reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
 
 @media (max-width: 940px) {
   .nav-links a:not(.nav-cta) { display: none; }
@@ -635,8 +637,7 @@ function buildReport() {
     '',
     'Anything else:',
     extra.value.trim() || '(not provided)'
-  ].join('
-');
+  ].join('\\n');
 }
 
 document.getElementById('openEmail').addEventListener('click', () => {
