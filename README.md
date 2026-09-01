@@ -1,85 +1,50 @@
-# 🔥 EmberForgeHQ Website
+# EmberForge Website Update — September 1, 2026
 
-Official website and product pages for **EmberForgeHQ**.
+This package updates the public EmberForge site around the current project state.
 
-EmberForge builds practical community tools shaped by the problems we’ve actually had to solve ourselves.
+## Files
 
-> **Professional enough to trust. Personal enough to recognize. Weird enough to remember.**
+- `index.html` — updated EmberForge homepage
+- `ember-vault.html` — current Ember Vault product page
+- `ember-nexus.html` — Ember Nexus concept / roadmap page
+- `creator.html` — updated creator story covering Vault + Nexus
+- `support.html` — Discord-first support + static report builder
+- `security.html` — refreshed responsible disclosure page
+- `styles.css` — shared site styling
+- `site.js` — footer year + support report builder
 
-## What lives here
+## Keep your existing asset
 
-This repository contains the public EmberForgeHQ website, including:
+The pages reference:
 
-- EmberForge homepage
-- Ember Vault product page
-- Support page
-- Security / responsible disclosure page
-- `/.well-known/security.txt`
+`/emberforge-mark.png`
 
-## Current pages
+Keep the existing EmberForge moon / forge mark in the repository. It is not included in this package because the file available in this session was the Ember Vault product logo, not the EmberForge website mark.
 
-```text
-/
-├── index.html
-├── ember-vault.html
-├── support.html
-├── security.html
-└── .well-known/
-    └── security.txt
-```
+## Current public positioning reflected here
+
+- EmberForge = parent workshop brand
+- Ember Vault = active development, independent runtime, public-beta preparation
+- Ember Nexus = concept / pre-development only
+- EmberForge HQ Discord = public community/support/beta home
+- Phoenix Clan Rising = origin / proving ground, not a dependency or customer-facing product assumption
+
 ## Deployment
 
-This site is deployed through **Cloudflare Pages**.
+Use the existing safe workflow:
 
-- Production branch: `main`
-- Automatic deployments: enabled
-- No build step is currently required
-- The site is served directly from the repository root
+1. Put these files on the `preview` branch.
+2. Keep the existing `emberforge-mark.png` asset.
+3. Let Cloudflare Pages build the preview.
+4. Test desktop + mobile navigation, support form buttons, Discord links, and all internal links.
+5. Merge `preview` into `main` only after the preview looks right.
 
-Changes committed to `main` are automatically deployed to production.
+## Discord
 
-## Ember Vault
+Current public invite used in these files:
 
-**Ember Vault** is the first public product built in EmberForge.
+`https://discord.gg/WRv4fGv2PG`
 
-It is a configurable Discord economy platform for communities that want things like:
+## Note on Ember Vault pricing
 
-- wallets and balances
-- marketplaces
-- rewards
-- vouchers
-- role income
-- guild-specific configuration
-- manager permissions
-- automation and analytics over time
-
-## How we build
-
-EmberForge follows a few simple rules:
-
-- useful before impressive
-- community-first design
-- clear systems over unnecessary complexity
-- build from real problems
-- test with real workflows
-- leave room to grow
-
-The shiny bits come later, after the thing actually works.
-
-## Status
-
-🚧 **Active development**
-
-The website, Ember Vault, and the broader EmberForge project are still being built and refined.
-
-Which is the polite version of saying there is probably something being tinkered with right now.
-
-## Links
-
-- Website: https://emberforgehq.com
-- Security: https://emberforgehq.com/security.html
-- Contact: `ever_forge@outlook.com`
-
----
-
-**Built in the Forge.**
+Spark / Inferno language is intentionally presented as product direction rather than a launch guarantee because Ember Vault is still pre-beta.
