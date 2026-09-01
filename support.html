@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0b0d12">
 <title>Support | EmberForge</title>
 <script>document.documentElement.classList.add('js');</script>
-<meta name="description" content="Get help with EmberForge and Ember Vault.">
+<meta name="description" content="Get help with EmberForge, Ember Vault, and Ember Nexus.">
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -346,7 +346,6 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
 }
 .check b { color:var(--turquoise-soft); }
 
-
 .support-form {
   padding: 42px;
   margin-bottom: 100px;
@@ -460,7 +459,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
       <a href="/#why">How we build</a>
       <a href="/creator.html">Meet the Creator</a>
       <a href="/support.html">Support</a>
-      <a class="nav-cta" href="/ember-vault.html">Explore Ember Vault</a>
+      <a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a>
     </div>
   </div>
 </nav>
@@ -470,11 +469,11 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <div class="reveal">
     <div class="eyebrow">Help</div>
     <h1>Need a hand?</h1>
-    <p class="lead">Whether Ember Vault is refusing to cooperate, you found a bug, or you just need help figuring something out, start here. No seventeen-menu scavenger hunt required.</p>
+    <p class="lead">Whether Ember Vault is refusing to cooperate, you found a bug, you have a question about Ember Nexus, or you just need help figuring something out, start here. EmberForge HQ is also open for public help, updates, and beta questions.</p>
   </div>
   <aside class="support-note reveal">
     <strong>One useful rule:</strong>
-    If something broke, tell us what you were doing, what you expected, and what actually happened. That usually gets us to the answer much faster.
+    If something broke, tell us what you were doing, what you expected, and what actually happened. For anything involving credentials, private account details, or security-sensitive information, do not post it in a public Discord channel.
   </aside>
 </section>
 
@@ -482,14 +481,14 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <article class="support-card card reveal">
     <div class="icon">?</div>
     <h2>Get help</h2>
-    <p>Setup trouble, configuration questions, account issues, or something that simply refuses to behave.</p>
-    <a class="support-link" href="#support-form" data-support-type="support">Open support form →</a>
+    <p>Setup trouble, configuration questions, account issues, beta questions, or something that simply refuses to behave.</p>
+    <a class="support-link" href="https://discord.gg/WRv4fGv2PG">Visit EmberForge HQ →</a>
   </article>
 
   <article class="support-card card reveal">
     <div class="icon">!</div>
     <h2>Report a bug</h2>
-    <p>Found something broken or weird? Tell us what happened and, if possible, how to make it happen again.</p>
+    <p>Found something broken or weird? Tell us what happened and, if possible, how to make it happen again. The report builder below is the cleanest route for detailed reproduction steps.</p>
     <a class="support-link" href="#support-form" data-support-type="bug">Open bug report →</a>
   </article>
 
@@ -501,13 +500,12 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   </article>
 </section>
 
-
 <section class="shell" id="support-form">
   <form class="support-form card reveal" id="emberSupportForm">
     <div class="form-intro">
       <div class="eyebrow">Tell us what happened</div>
       <h2>Send the useful bits.</h2>
-      <p>You can fill this out right here. When you're done, use <strong>Open email app</strong> to create a pre-filled message, or <strong>Copy report</strong> if you'd rather paste it somewhere else.</p>
+      <p>You can fill this out right here. When you're done, use <strong>Open email app</strong> to create a pre-filled message, or <strong>Copy report</strong> if you'd rather paste it into EmberForge HQ or another support channel.</p>
     </div>
 
     <div class="form-grid">
@@ -555,7 +553,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     </div>
 
     <p class="form-note">
-      This site is currently static, so the form does not send anything by itself. The buttons above create or copy the report for you without pretending it vanished into a mysterious support database.
+      This site is currently static, so the form does not send anything by itself. The buttons above create or copy the report for you. Public help is available in EmberForge HQ, while private ticketing is planned for issues that should not live in a public channel.
     </p>
   </form>
 </section>
@@ -577,12 +575,13 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     <div class="footer-column">
       <h3>Products</h3>
       <a href="/ember-vault.html">Ember Vault</a>
-      <span>More tools eventually. Probably.</span>
+      <a href="/ember-nexus.html">Ember Nexus</a>
     </div>
     <div class="footer-column">
       <h3>Help</h3>
       <a href="/support.html">Support</a>
       <a href="/security.html">Security</a>
+      <a href="https://discord.gg/WRv4fGv2PG">Discord</a>
       <a href="mailto:ever_forge@outlook.com">Contact</a>
     </div>
   </div>
@@ -637,7 +636,7 @@ function buildReport() {
     '',
     'Anything else:',
     extra.value.trim() || '(not provided)'
-  ].join('\\n');
+  ].join('\n');
 }
 
 document.getElementById('openEmail').addEventListener('click', () => {
