@@ -269,7 +269,6 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   .reveal { opacity: 1; transform: none; }
 }
 
-
 .creator-hero {
   min-height:580px;
   display:grid;
@@ -363,16 +362,26 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
 }
 .closer p { color:var(--muted); max-width:700px; }
 .closer .btn { justify-self:end; }
+.product-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:flex-end;
+}
+.closer .product-actions { justify-self:end; }
 
 @media (max-width:940px) {
   .creator-hero, .creator-card, .story, .closer { grid-template-columns:1fr; }
   .story-kicker { position:static; }
   .timeline { grid-template-columns:1fr; }
   .closer .btn { justify-self:start; }
+  .closer .product-actions { justify-self:start; }
 }
 @media (max-width:640px) {
   .values { grid-template-columns:1fr; }
   .creator-card, .closer { padding:28px; }
+  .product-actions { width:100%; }
+  .product-actions .btn { width:100%; }
 }
 </style>
 </head>
@@ -391,7 +400,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
       <a href="/#why">How we build</a>
       <a href="/creator.html">Meet the Creator</a>
       <a href="/support.html">Support</a>
-      <a class="nav-cta" href="/ember-vault.html">Explore Ember Vault</a>
+      <a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a>
     </div>
   </div>
 </nav>
@@ -401,7 +410,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <div class="reveal">
     <div class="eyebrow">Meet the Creator</div>
     <h1>Hi, I’m <span class="glow-word">Katie.</span></h1>
-    <p class="lead">I built EmberForge after spending years on the other side of community tools: running the community, solving the problems, and discovering exactly how quickly “this should be simple” can become an entire evening.</p>
+    <p class="lead">I built EmberForge after spending years on the other side of community tools: running the community, solving the problems, and discovering exactly how quickly “this should be simple” can become an entire evening, a bot, a database, and somehow its own roadmap.</p>
   </div>
 
   <aside class="creator-card card reveal">
@@ -409,7 +418,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     <div>
       <div class="tiny">Founder / Builder / Community person</div>
       <strong>Community first.<br>Tools second.</strong>
-      <p>EmberForge grew from practical problems, late-night tinkering, and a recurring suspicion that I could probably build the thing I wished existed.</p>
+      <p>EmberForge grew from practical problems, late-night tinkering, and a recurring suspicion that if a tool kept fighting the people using it, I could probably build something that fit better.</p>
     </div>
   </aside>
 </section>
@@ -435,9 +444,13 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
 
       <p>That question kept coming back. One bot became another. Individual tools started becoming systems. Systems started becoming something I could refine, reuse, and make better.</p>
 
-      <p>Eventually, one of those projects became <strong>Ember Vault</strong>. That was the moment the idea started stretching beyond my own community.</p>
+      <p>Eventually, one of those projects became <strong>Ember Vault</strong>. What started as a private community economy grew into its own product with its own codebase, database, service identity, infrastructure, multi-guild boundaries, and public roadmap.</p>
 
-      <p>I realized the tools I was building because <em>I</em> needed them might be useful to other community owners too.</p>
+      <p>That was the moment the idea started stretching beyond my own community. I realized the tools I was building because <em>I</em> needed them might be useful to other community owners too.</p>
+
+      <p>Then the same thing happened again. A crosschat problem turned into <strong>Ember Nexus</strong>, a much bigger idea for connecting game servers, Discord, websites, shops, identities, and automation without hardcoding one community's setup into the center of everything.</p>
+
+      <p>At that point, EmberForge stopped being the name of one project and became the workshop around all of them.</p>
     </div>
   </div>
 </section>
@@ -456,12 +469,12 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
       <article class="card reveal">
         <div class="label">02 / BUILD</div>
         <h3>Make what was missing.</h3>
-        <p>Bots started as internal tools built for the things PCR actually needed, not hypothetical feature lists.</p>
+        <p>Bots started as internal tools built for the things PCR actually needed, not hypothetical feature lists. Vault proved some of those systems could stand on their own.</p>
       </article>
       <article class="card reveal">
         <div class="label">03 / EMBERFORGE</div>
         <h3>Build beyond one community.</h3>
-        <p>EmberForge became the place to turn those lessons into tools that other communities can shape around themselves.</p>
+        <p>EmberForge became the workshop for turning those lessons into products, documenting the decisions behind them, and keeping room for the next useful thing.</p>
       </article>
     </div>
   </div>
@@ -474,7 +487,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
         <div class="eyebrow">How I build</div>
         <h2>Founder fingerprints, not founder wallpaper.</h2>
       </div>
-      <p class="lead reveal">EmberForge carries my curiosity, practicality, community experience, and occasional refusal to accept that a clumsy workflow is “just how it works.” But the goal is to build products that can grow well beyond one person.</p>
+      <p class="lead reveal">EmberForge carries my curiosity, practicality, community experience, and occasional refusal to accept that a clumsy workflow is “just how it works.” The founder fingerprints stay visible, but the systems themselves are being built to survive beyond one person, one Discord server, or one community.</p>
     </div>
 
     <div class="values">
@@ -502,11 +515,15 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <div class="shell">
     <div class="closer card reveal">
       <div>
-        <div class="eyebrow">What comes next</div>
-        <h2>Still building.</h2>
-        <p>Ember Vault is the first public EmberForge product, not the finish line. The Forge exists for the next useful thing somebody wishes worked better.</p>
+        <div class="eyebrow">What came next</div>
+        <h2>Apparently, an actual product family.</h2>
+        <p>Ember Vault is in active development and preparing for public beta. Ember Nexus is deliberately still on the workbench. EmberForge HQ is now open for the people who want to follow the work, test things, ask questions, and inevitably uncover the weird edge case we did not know existed yet.</p>
       </div>
-      <a class="btn primary" href="/ember-vault.html">Explore Ember Vault</a>
+      <div class="product-actions">
+        <a class="btn primary" href="/ember-vault.html">Explore Ember Vault</a>
+        <a class="btn secondary" href="/ember-nexus.html">Explore Ember Nexus</a>
+        <a class="btn secondary" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a>
+      </div>
     </div>
   </div>
 </section>
@@ -528,7 +545,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     <div class="footer-column">
       <h3>Products</h3>
       <a href="/ember-vault.html">Ember Vault</a>
-      <span>More tools eventually. Probably.</span>
+      <a href="/ember-nexus.html">Ember Nexus</a>
     </div>
     <div class="footer-column">
       <h3>Help</h3>

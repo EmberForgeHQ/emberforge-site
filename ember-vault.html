@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b0d12">
 <title>Ember Vault | EmberForge</title>
-<meta name="description" content="Ember Vault is EmberForge's configurable Discord economy platform for communities.">
+<meta name="description" content="Ember Vault is EmberForge's configurable, guild-isolated Discord economy platform for communities.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
@@ -70,6 +70,8 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
 .product-hero h1{margin:14px 0 22px;max-width:720px}
 .product-hero h1 span{color:var(--turquoise);text-shadow:0 0 28px rgba(0,206,209,.12)}
 .product-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-status{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:8px 12px;border:1px solid rgba(0,206,209,.20);background:rgba(0,206,209,.055);color:#bfeef2;font-size:.8rem;font-weight:800}
+.hero-status i{width:7px;height:7px;border-radius:50%;background:var(--turquoise);box-shadow:0 0 10px rgba(0,206,209,.65)}
 
 .vault-shell{padding:28px;min-height:430px;overflow:hidden}
 .vault-shell::before{
@@ -101,6 +103,7 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
 .plan{padding:34px}.plan .tier{color:var(--turquoise);text-transform:uppercase;font-size:.77rem;font-weight:800;letter-spacing:.15em}
 .plan h3{margin-top:10px;font-size:2rem}.plan .price{margin:12px 0 18px;font-size:2.25rem;font-weight:800}
 .plan ul{margin:0;padding-left:20px;color:var(--muted);line-height:1.8}.plan.featured{border-color:rgba(0,206,209,.26)}
+.plan-note{margin:20px 0 0;padding:16px 18px;border:1px solid rgba(0,206,209,.18);background:rgba(0,206,209,.045);color:#aeb8c4;font-size:.92rem}
 .product-cta{text-align:center;padding:92px 0 104px}.product-cta p{margin:18px auto 0}.product-cta .product-actions{justify-content:center}
 
 .site-footer{border-top:1px solid rgba(245,245,245,.07);padding:58px 0 28px;background:linear-gradient(180deg,rgba(17,19,26,.72),rgba(8,10,14,.96))}
@@ -134,7 +137,7 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
       <a href="/#why">How we build</a>
       <a href="/creator.html">Meet the Creator</a>
       <a href="/support.html">Support</a>
-      <a class="nav-cta" href="/ember-vault.html">Explore Ember Vault</a>
+      <a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a>
     </div>
   </div>
 </nav>
@@ -145,42 +148,43 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
     <div>
       <div class="product-kicker">EmberForge Product 01</div>
       <h1>Meet <span>Ember Vault.</span></h1>
-      <p class="lead">A configurable Discord economy platform for communities that want wallets, marketplaces, rewards, vouchers, role income, and administration without rebuilding the entire machine themselves.</p>
+      <p class="lead">A configurable Discord economy platform with guild-isolated wallets, transactions, shops, vouchers, rewards, role income, delegated management, and per-server settings. Ember Vault now runs independently on EmberForge infrastructure and is being prepared for public beta.</p>
+      <div class="hero-status"><i></i>Active development · independent runtime · beta preparation</div>
       <div class="product-actions">
-        <a class="btn primary" href="#plans">View plans</a>
-        <a class="btn secondary" href="/support.html">Get support</a>
+        <a class="btn primary" href="#current">See what's working</a>
+        <a class="btn secondary" href="https://discord.gg/WRv4fGv2PG">Follow beta progress</a>
       </div>
     </div>
 
     <div class="vault-shell card">
       <div class="vault-demo">
-        <div class="vault-demo-top"><strong>Ember Vault</strong><span>All systems behaving</span></div>
-        <div class="vault-demo-balance"><small>Community balance</small><strong><em>✦</em> 12,450 Credits</strong></div>
+        <div class="vault-demo-top"><strong>Ember Vault</strong><span>Independent service online</span></div>
+        <div class="vault-demo-balance"><small>Example guild balance</small><strong><em>✦</em> 12,450 Credits</strong></div>
         <div class="vault-demo-grid">
-          <div class="vault-stat"><span>Shop listings</span><strong>18 active</strong></div>
-          <div class="vault-stat"><span>Reward rules</span><strong>5 configured</strong></div>
-          <div class="vault-stat"><span>Role income</span><strong>3 running</strong></div>
-          <div class="vault-stat"><span>Manager access</span><strong>2 members</strong></div>
+          <div class="vault-stat"><span>Economy scope</span><strong>Per guild</strong></div>
+          <div class="vault-stat"><span>Active commands</span><strong>16</strong></div>
+          <div class="vault-stat"><span>Management</span><strong>Delegatable</strong></div>
+          <div class="vault-stat"><span>Public stage</span><strong>Pre-beta</strong></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="current">
   <div class="shell">
     <div class="section-head">
       <div><div class="eyebrow">Built for real communities</div><h2>Useful before impressive.</h2></div>
-      <p>Ember Vault is built around the jobs community teams actually have to do: configure an economy, delegate management safely, reward participation, run shops, and keep each Discord server's data isolated.</p>
+      <p>Ember Vault is being hardened around the parts an economy platform cannot afford to get vague about: guild isolation, permissions, configuration, fulfillment boundaries, predictable operation, and a setup flow that does not require touching database rows by hand.</p>
     </div>
 
     <div class="feature-grid">
-      <article class="feature-card card"><span class="num">01 / ISOLATION</span><h3>Guild-isolated.</h3><p>Each Discord server keeps its own wallets, transactions, settings, shops, vouchers, and rewards.</p></article>
-      <article class="feature-card card"><span class="num">02 / CONFIGURATION</span><h3>Shape it around your server.</h3><p>Choose your currency, starting balance, manager role, log channel, and economy behavior.</p></article>
-      <article class="feature-card card"><span class="num">03 / ACCESS</span><h3>Delegate without over-permissioning.</h3><p>Give trusted managers economy access without handing out full Discord Administrator permissions.</p></article>
-      <article class="feature-card card"><span class="num">04 / MARKETPLACE</span><h3>More than a wallet.</h3><p>Build shops, inventories, vouchers, rewards, and redemption flows around the way your community works.</p></article>
-      <article class="feature-card card"><span class="num">05 / AUTOMATION</span><h3>Reduce repetitive work.</h3><p>Role income, scheduled rewards, and future automation features are designed to take routine admin work off your plate.</p></article>
-      <article class="feature-card card"><span class="num">06 / GROWTH</span><h3>Start simple. Leave room.</h3><p>Begin with a useful economy now and grow into analytics, advanced controls, and richer administration later.</p></article>
+      <article class="feature-card card"><span class="num">01 / ISOLATION</span><h3>Every guild gets its own economy.</h3><p>Wallets, transactions, cooldowns, rewards, shops, inventory, vouchers, redemptions, role income, and settings stay scoped to the Discord server that owns them.</p></article>
+      <article class="feature-card card"><span class="num">02 / CONFIGURATION</span><h3>Shape it around your server.</h3><p>Configure currency names and symbols, starting balances, manager roles, and transaction log channels per guild.</p></article>
+      <article class="feature-card card"><span class="num">03 / ACCESS</span><h3>Delegate without over-permissioning.</h3><p>Trusted managers can administer Ember Vault without needing full Discord Administrator access.</p></article>
+      <article class="feature-card card"><span class="num">04 / MARKETPLACE</span><h3>Fulfillment stays inside the right walls.</h3><p>Rewards, shops, inventory, vouchers, purchases, and redemptions are guild-aware so one server cannot see or manage another server's records.</p></article>
+      <article class="feature-card card"><span class="num">05 / OPERATIONS</span><h3>It has its own house now.</h3><p>Ember Vault runs as its own systemd service with its own Linux service identity and database on EmberForge's application infrastructure.</p></article>
+      <article class="feature-card card"><span class="num">06 / GROWTH</span><h3>Core first. Power later.</h3><p>Onboarding, documentation, beta readiness, richer admin controls, dashboard work, analytics, and automation remain ahead.</p></article>
     </div>
   </div>
 </section>
@@ -202,20 +206,22 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
 <section class="section" id="plans">
   <div class="shell">
     <div class="section-head">
-      <div><div class="eyebrow">Plans</div><h2>Start useful. Scale when you need it.</h2></div>
-      <p>Spark keeps the core economy genuinely useful for free. Inferno expands limits, automation, configuration, and multi-guild capability for communities that need more room.</p>
+      <div><div class="eyebrow">Current product direction</div><h2>Start useful. Scale when you need it.</h2></div>
+      <p>Spark is intended to keep the core economy genuinely useful for free. Inferno is the current paid-plan direction for communities that need more guilds, higher limits, deeper automation, and more management capacity.</p>
     </div>
 
     <div class="plan-grid">
       <article class="plan card">
         <div class="tier">Spark</div><h3>Free</h3><div class="price">$0</div>
-        <ul><li>1 Discord guild</li><li>Core economy features</li><li>Useful shop, voucher, reward, and role-income limits</li><li>24-hour transaction and admin log history</li></ul>
+        <ul><li>1 Discord guild</li><li>Genuinely useful core economy</li><li>Wallets, transactions, shops, vouchers, rewards, and role income</li><li>Designed to be useful without becoming an upgrade trap</li></ul>
       </article>
       <article class="plan card featured">
-        <div class="tier">Inferno</div><h3>For growing communities</h3><div class="price">$4.99/month</div>
-        <ul><li>2 guilds included</li><li>Up to 5 total guilds</li><li>Higher limits across shops, vouchers, rewards, and managers</li><li>Automation, advanced configuration, and analytics direction</li><li>Up to 5 days of transaction and admin log history</li></ul>
+        <div class="tier">Inferno · planned</div><h3>For communities that need more room</h3><div class="price">$4.99/month</div>
+        <ul><li>2 guilds included in the current plan</li><li>Up to 5 total guilds</li><li>Higher limits across shops, vouchers, rewards, role income, and managers</li><li>Advanced automation, configuration, and analytics direction</li><li>Additional guild slots currently planned at $1.49/month</li></ul>
       </article>
     </div>
+
+    <p class="plan-note"><strong>Still pre-beta:</strong> Spark, Inferno, pricing, limits, and retention windows are current product planning rather than launch guarantees. We would rather revise a draft now than publish a bad promise later.</p>
   </div>
 </section>
 
@@ -224,7 +230,7 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
     <div class="eyebrow">Built in the Forge</div>
     <h2>Your community. Your economy.</h2>
     <p class="lead">Ember Vault is being built to fit the community you actually run, not the imaginary one from a software demo.</p>
-    <div class="product-actions"><a class="btn primary" href="#plans">Compare plans</a><a class="btn secondary" href="/support.html">Visit support</a></div>
+    <div class="product-actions"><a class="btn primary" href="https://discord.gg/WRv4fGv2PG">Follow beta progress</a><a class="btn secondary" href="/support.html">Visit support</a></div>
   </div>
 </section>
 </main>
@@ -233,7 +239,7 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
   <div class="shell footer-grid">
     <div class="footer-brand"><strong>EmberForge</strong><p>Community tools built by people who actually run communities.</p><p class="footer-small">Built carefully. Refined constantly. Occasionally argued with.</p></div>
     <div class="footer-column"><h3>Forge</h3><a href="/#products">Projects</a><a href="/#why">How we build</a><a href="/creator.html">Meet the Creator</a></div>
-    <div class="footer-column"><h3>Products</h3><a href="/ember-vault.html">Ember Vault</a><span>More tools eventually. Probably.</span></div>
+    <div class="footer-column"><h3>Products</h3><a href="/ember-vault.html">Ember Vault</a><a href="/ember-nexus.html">Ember Nexus</a></div>
     <div class="footer-column"><h3>Help</h3><a href="/support.html">Support</a><a href="/security.html">Security</a><a href="mailto:ever_forge@outlook.com">Contact</a></div>
   </div>
   <div class="shell footer-bottom"><span>© <span id="year">2026</span> EmberForge</span><span>Built in the Forge.</span></div>
