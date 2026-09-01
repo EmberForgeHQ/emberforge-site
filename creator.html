@@ -1,7 +1,572 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meet the Creator | EmberForge</title><meta name="description" content="The story behind EmberForge, Phoenix Clan Rising, Ember Vault, and the recurring question: could we just build this better?"><link rel="stylesheet" href="/styles.css"></head><body>
-<nav class="site-nav"><div class="shell nav-inner"><a class="brand" href="/"><span class="brand-mark"><img src="/emberforge-mark.png" alt=""></span><span>Ember<em>Forge</em></span></a><div class="nav-links"><a href="/#products">Projects</a><a href="/#why">How we build</a><a href="/support.html">Support</a><a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a></div></div></nav>
-<main><section class="hero"><div class="shell story-grid"><div><div class="eyebrow">Meet the Creator</div><h1>It started with <span>“could I just build this?”</span></h1></div><div><p class="lead">EmberForge did not start as a software company. It started inside Phoenix Clan Rising, where running a real gaming community kept producing the same problem: the tools we needed either did not exist, did not quite fit, or made simple work much harder than it should have been.</p><p class="lead">Eventually, building our own stopped being the emergency workaround and became the interesting part.</p></div></div></section>
-<section class="section"><div class="shell story-grid"><div class="quote">“Phoenix Clan Rising is where the problems showed up first. EmberForge is where I started turning those problems into tools.”</div><div class="timeline"><article><span class="num">THE PROVING GROUND</span><h3>Phoenix Clan Rising</h3><p>Moderation, economies, staff coordination, events, infrastructure, migrations, support, game integrations, and a steady supply of very specific edge cases.</p></article><article><span class="num">PRODUCT 01</span><h3>Ember Vault</h3><p>A private community treasury grew into a separate public-facing economy platform with its own code, database, service identity, infrastructure, guild isolation, and product roadmap.</p></article><article><span class="num">PRODUCT 02</span><h3>Ember Nexus</h3><p>A crosschat problem turned into the idea for a customizable multi-game integration layer connecting servers, Discord, websites, shops, identities, and automation.</p></article><article><span class="num">THE WORKSHOP</span><h3>EmberForge</h3><p>The umbrella for taking practical internal tools, separating them from one community's assumptions, and shaping them into products other communities can actually use.</p></article></div></div></section>
-<section class="section"><div class="shell"><div class="section-head"><div><div class="eyebrow">How I build</div><h2>Founder fingerprints, not founder wallpaper.</h2></div><p>EmberForge carries curiosity, practicality, community experience, late-night iteration, and an occasional refusal to accept that a clumsy workflow is “just how it works.” The goal is still to build products that can grow beyond one person.</p></div><div class="why-grid"><article class="principle card"><span class="num">01</span><h3>Start with the person doing the work.</h3><p>Community owners, moderators, admins, event teams, and staff are usually juggling more than the software realizes.</p></article><article class="principle card"><span class="num">02</span><h3>Build from reality.</h3><p>If a feature looks perfect on paper but becomes annoying in daily use, reality wins. The feature changes.</p></article><article class="principle card"><span class="num">03</span><h3>Keep it human.</h3><p>Software can be professional without sounding like it was assembled by a committee inside a spreadsheet.</p></article></div></div></section>
-<section class="section"><div class="shell"><div class="community-card card featured"><div class="eyebrow">What came next</div><h2>Apparently, an actual product family.</h2><p>Ember Vault is active development. Ember Nexus is deliberately still planning. Creator Forge now preserves the history and decisions behind the work so Future Us does not have to excavate three days of terminals, screenshots, and caffeine to remember why something exists.</p><div class="product-actions"><a class="btn primary" href="/ember-vault.html">Explore Ember Vault</a><a class="btn secondary" href="/ember-nexus.html">Explore Ember Nexus</a></div></div></div></section></main>
-<footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><strong>EmberForge</strong><p>Community tools built by people who actually run communities.</p></div><div class="footer-column"><h3>Forge</h3><a href="/">Home</a><a href="/#why">How we build</a></div><div class="footer-column"><h3>Products</h3><a href="/ember-vault.html">Ember Vault</a><a href="/ember-nexus.html">Ember Nexus</a></div><div class="footer-column"><h3>Help</h3><a href="/support.html">Support</a><a href="/security.html">Security</a><a href="https://discord.gg/WRv4fGv2PG">Discord</a></div></div><div class="shell footer-bottom"><span>© <span id="year">2026</span> EmberForge</span><span>Founder fingerprints. Not founder wallpaper.</span></div></footer><script src="/site.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<title>Meet the Creator | EmberForge</title>
+<meta name="description" content="Meet the creator behind EmberForge and learn how community problems became community tools.">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #0b0d12;
+  --ink-2: #11131a;
+  --panel: #171a22;
+  --panel-2: #1e222c;
+  --turquoise: #00ced1;
+  --turquoise-soft: #62eef0;
+  --purple: #66023c;
+  --purple-soft: #9a245f;
+  --white: #f5f5f5;
+  --muted: #b8bcc7;
+  --muted-2: #858b98;
+  --line: rgba(245,245,245,.10);
+  --cyan-line: rgba(0,206,209,.25);
+  --purple-line: rgba(154,36,95,.30);
+  --shadow: 0 28px 80px rgba(0,0,0,.34);
+  --max: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--white);
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 8% -8%, rgba(102,2,60,.52), transparent 34rem),
+    radial-gradient(circle at 92% 8%, rgba(0,206,209,.16), transparent 28rem),
+    linear-gradient(180deg, #090b10 0%, #0d1016 46%, #090b10 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .15;
+  z-index: 999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+a { color: inherit; }
+.shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+  background: rgba(9,11,16,.78);
+  border-bottom: 1px solid rgba(245,245,245,.07);
+}
+
+.nav-inner {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.brand-mark {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(0,206,209,.18));
+}
+.brand em { font-style: normal; color: var(--turquoise); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #d7d9df;
+  font-size: .92rem;
+  font-weight: 700;
+}
+.nav-links a:hover { color: var(--turquoise-soft); }
+
+.nav-cta, .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 20px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid transparent;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.nav-cta, .btn.primary {
+  color: #071114;
+  background: linear-gradient(135deg, var(--turquoise-soft), var(--turquoise));
+  box-shadow: 0 14px 34px rgba(0,206,209,.17);
+}
+.nav-cta:hover, .btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(0,206,209,.25);
+}
+
+.btn.secondary {
+  color: var(--white);
+  border-color: rgba(245,245,245,.14);
+  background: rgba(245,245,245,.035);
+}
+.btn.secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--purple-soft);
+  background: rgba(102,2,60,.18);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--turquoise-soft);
+  font-size: .76rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--purple-soft), var(--turquoise));
+  box-shadow: 0 0 12px rgba(0,206,209,.45);
+}
+
+h1, h2, h3, .display {
+  font-family: "Fraunces", Georgia, serif;
+  margin: 0;
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+h1 { font-size: clamp(3.4rem, 6.1vw, 6.35rem); }
+h2 { font-size: clamp(2.45rem, 4vw, 4.5rem); }
+h3 { font-size: 1.45rem; line-height: 1.1; }
+
+.lead {
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 680px;
+}
+
+.glow-word {
+  color: var(--turquoise);
+  text-shadow: 0 0 28px rgba(0,206,209,.14);
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.card {
+  position: relative;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(102,2,60,.17), transparent 15rem),
+    linear-gradient(145deg, rgba(30,34,44,.94), rgba(18,20,27,.96));
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(245,245,245,.025);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+.card::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  width: 76px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--turquoise));
+}
+
+.site-footer {
+  border-top: 1px solid rgba(245,245,245,.07);
+  padding: 58px 0 28px;
+  background: linear-gradient(180deg, rgba(17,19,26,.72), rgba(8,10,14,.96));
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.7fr repeat(3, .75fr);
+  gap: 42px;
+}
+.footer-brand p { max-width: 460px; color: #a9adb7; margin: 14px 0 0; }
+.footer-small { color: #777e8a !important; font-size: .9rem; }
+.footer-column { display: grid; gap: 10px; align-content: start; }
+.footer-column h3 {
+  font-family: "Manrope", sans-serif;
+  margin: 0 0 4px;
+  color: var(--turquoise);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: .77rem;
+}
+.footer-column a, .footer-column span {
+  color: #aeb2bb;
+  text-decoration: none;
+  font-size: .93rem;
+}
+.footer-column a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 38px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(245,245,245,.07);
+  color: #717783;
+  font-size: .86rem;
+}
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 940px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .shell { width: min(100% - 26px, var(--max)); }
+  .nav-inner { min-height: 70px; }
+  .brand-mark { width: 46px; height: 46px; }
+  .nav-cta { display: none; }
+  .section { padding: 74px 0; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+.creator-hero {
+  min-height:580px;
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:64px;
+  align-items:center;
+  padding:82px 0 90px;
+}
+.creator-hero h1 { margin-top:14px; }
+.creator-hero .lead { margin-top:24px; }
+.creator-card {
+  min-height:360px;
+  padding:38px;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:18px;
+  align-items:center;
+  overflow:hidden;
+}
+.creator-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(102,2,60,.50), transparent 16rem),
+    radial-gradient(circle at 80% 18%, rgba(0,206,209,.12), transparent 17rem);
+}
+.creator-card > * { position:relative; z-index:1; }
+.creator-logo {
+  width: min(100%, 230px);
+  display:block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 20px rgba(0,206,209,.12));
+}
+.creator-card .tiny { color:var(--turquoise-soft); text-transform:uppercase; letter-spacing:.16em; font-weight:800; font-size:.75rem; }
+.creator-card strong {
+  display:block;
+  margin-top:10px;
+  font-family:"Fraunces",serif;
+  font-size:clamp(2.1rem,3.6vw,3.2rem);
+  line-height:1;
+}
+.creator-card p { color:#bbbfc8; margin:16px 0 0; }
+
+.story {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:76px;
+  align-items:start;
+}
+.story-copy p { color:var(--muted); font-size:1.06rem; margin:0 0 18px; }
+.story-copy strong { color:var(--white); }
+.story-kicker { position:sticky; top:110px; }
+.story-kicker p { color:#8e949f; max-width:360px; }
+
+.pullquote {
+  margin:34px 0;
+  padding:30px 32px;
+  border-left:3px solid var(--turquoise);
+  background:linear-gradient(90deg, rgba(102,2,60,.24), rgba(0,206,209,.03));
+  font-family:"Fraunces",Georgia,serif;
+  font-size:clamp(1.65rem,3vw,2.55rem);
+  line-height:1.15;
+}
+
+.timeline {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:44px;
+}
+.timeline .card { padding:28px; min-height:230px; }
+.timeline .label { color:var(--turquoise); font-weight:800; letter-spacing:.1em; font-size:.76rem; }
+.timeline h3 { margin:46px 0 12px; }
+.timeline p { color:#9ea3ae; margin:0; }
+
+.values {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.value-card { padding:34px; }
+.value-card p { color:var(--muted); margin:14px 0 0; }
+
+.closer {
+  padding:48px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:40px;
+  align-items:center;
+}
+.closer p { color:var(--muted); max-width:700px; }
+.closer .btn { justify-self:end; }
+.product-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:flex-end;
+}
+.closer .product-actions { justify-self:end; }
+
+@media (max-width:940px) {
+  .creator-hero, .creator-card, .story, .closer { grid-template-columns:1fr; }
+  .story-kicker { position:static; }
+  .timeline { grid-template-columns:1fr; }
+  .closer .btn { justify-self:start; }
+  .closer .product-actions { justify-self:start; }
+}
+@media (max-width:640px) {
+  .values { grid-template-columns:1fr; }
+  .creator-card, .closer { padding:28px; }
+  .product-actions { width:100%; }
+  .product-actions .btn { width:100%; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="shell nav-inner">
+    <a class="brand" href="/" aria-label="EmberForge home">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="/emberforge-mark.png" alt="">
+      </span>
+      <span>Ember<em>Forge</em></span>
+    </a>
+    <div class="nav-links" aria-label="Primary navigation">
+      <a href="/#products">Projects</a>
+      <a href="/#why">How we build</a>
+      <a href="/creator.html">Meet the Creator</a>
+      <a href="/support.html">Support</a>
+      <a class="nav-cta" href="/#products">Explore Projects</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="shell creator-hero">
+  <div class="reveal">
+    <div class="eyebrow">Meet the Creator</div>
+    <h1>Hi, I’m <span class="glow-word">Katie.</span></h1>
+    <p class="lead">I built EmberForge after spending years on the other side of community tools: running the community, solving the problems, and discovering exactly how quickly “this should be simple” can become an entire evening.</p>
+  </div>
+
+  <aside class="creator-card card reveal">
+    <img class="creator-logo" src="/emberforge-mark.png" alt="EmberForge emblem">
+    <div>
+      <div class="tiny">Founder / Builder / Community person</div>
+      <strong>Community first.<br>Tools second.</strong>
+      <p>EmberForge grew from practical problems, late-night tinkering, and a recurring suspicion that I could probably build the thing I wished existed.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="section">
+  <div class="shell story">
+    <div class="story-kicker reveal">
+      <div class="eyebrow">Where it started</div>
+      <h2>Before EmberForge, there was PCR.</h2>
+      <p>Phoenix Clan Rising is where the problems showed up first. EmberForge is where I started turning those problems into tools.</p>
+    </div>
+
+    <div class="story-copy reveal">
+      <p>EmberForge did not begin as a software company. It started inside <strong>Phoenix Clan Rising</strong>, the gaming community I was already running.</p>
+
+      <p>Like most community owners, I kept running into little problems that existing tools either did not solve, solved awkwardly, or wanted me to reshape my whole workflow around.</p>
+
+      <p>So I started creating bots for myself.</p>
+
+      <p>At first they were practical tools for PCR: moderation, economy features, community systems, staff coordination, automation, and the odd little jobs that appear when a community grows enough moving parts.</p>
+
+      <div class="pullquote">“Wait... could I just build this?”</div>
+
+      <p>That question kept coming back. One bot became another. Individual tools started becoming systems. Systems started becoming something I could refine, reuse, and make better.</p>
+
+      <p>Eventually, one of those projects became <strong>Ember Vault</strong>. That was the moment the idea started stretching beyond my own community.</p>
+
+      <p>I realized the tools I was building because <em>I</em> needed them might be useful to other community owners too.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="eyebrow reveal">The path here</div>
+    <h2 class="reveal">A community became a workshop.</h2>
+
+    <div class="timeline">
+      <article class="card reveal">
+        <div class="label">01 / PCR</div>
+        <h3>Run the community.</h3>
+        <p>Real players, real staff, real workflows, real edge cases. The kind of environment where “simple” features learn humility.</p>
+      </article>
+      <article class="card reveal">
+        <div class="label">02 / BUILD</div>
+        <h3>Make what was missing.</h3>
+        <p>Bots started as internal tools built for the things PCR actually needed, not hypothetical feature lists.</p>
+      </article>
+      <article class="card reveal">
+        <div class="label">03 / EMBERFORGE</div>
+        <h3>Build beyond one community.</h3>
+        <p>EmberForge became the place to turn those lessons into tools that other communities can shape around themselves.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head" style="display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:end;margin-bottom:42px;">
+      <div class="reveal">
+        <div class="eyebrow">How I build</div>
+        <h2>Founder fingerprints, not founder wallpaper.</h2>
+      </div>
+      <p class="lead reveal">EmberForge carries my curiosity, practicality, community experience, and occasional refusal to accept that a clumsy workflow is “just how it works.” But the goal is to build products that can grow well beyond one person.</p>
+    </div>
+
+    <div class="values">
+      <article class="value-card card reveal">
+        <h3>Start with the person doing the work.</h3>
+        <p>Community owners, moderators, admins, event teams, and staff are usually juggling more than the software realizes. The tool should respect that.</p>
+      </article>
+      <article class="value-card card reveal">
+        <h3>Build from reality.</h3>
+        <p>If a feature looks perfect on paper but becomes annoying in daily use, reality wins. We change the feature.</p>
+      </article>
+      <article class="value-card card reveal">
+        <h3>Keep it human.</h3>
+        <p>Software can be professional without sounding like it was assembled by a committee inside a spreadsheet.</p>
+      </article>
+      <article class="value-card card reveal">
+        <h3>Leave room to grow.</h3>
+        <p>Today's useful tool should not become tomorrow's trap. EmberForge is built to be refined as the problems get bigger.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="closer card reveal">
+      <div>
+        <div class="eyebrow">What came next</div>
+        <h2>Apparently, another product.</h2>
+        <p>Ember Vault started with community economy problems. Ember Nexus started with a crosschat problem and promptly became something much bigger. Different tools, same recurring question: could we build this better?</p>
+      </div>
+      <div class="product-actions">
+        <a class="btn primary" href="/ember-vault.html">Explore Ember Vault</a>
+        <a class="btn secondary" href="/ember-nexus.html">Explore Ember Nexus</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <strong>EmberForge</strong>
+      <p>Community tools built by people who actually run communities.</p>
+      <p class="footer-small">Built carefully. Refined constantly. Occasionally argued with.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Forge</h3>
+      <a href="/#products">Projects</a>
+      <a href="/#why">How we build</a>
+      <a href="/creator.html">Meet the Creator</a>
+    </div>
+    <div class="footer-column">
+      <h3>Products</h3>
+      <a href="/ember-vault.html">Ember Vault</a>
+      <a href="/ember-nexus.html">Ember Nexus</a>
+    </div>
+    <div class="footer-column">
+      <h3>Help</h3>
+      <a href="/support.html">Support</a>
+      <a href="/security.html">Security</a>
+      <a href="mailto:ever_forge@outlook.com">Contact</a>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>© <span id="year">2026</span> EmberForge</span>
+    <span>Built in the Forge.</span>
+  </div>
+</footer>
+
+<script>
+const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,6 +1,660 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Support | EmberForge</title><meta name="description" content="Get help with EmberForge products, report bugs, or find security reporting information."><link rel="stylesheet" href="/styles.css"></head><body>
-<nav class="site-nav"><div class="shell nav-inner"><a class="brand" href="/"><span class="brand-mark"><img src="/emberforge-mark.png" alt=""></span><span>Ember<em>Forge</em></span></a><div class="nav-links"><a href="/#products">Projects</a><a href="/creator.html">Meet the Creator</a><a href="/security.html">Security</a><a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a></div></div></nav>
-<main><section class="product-hero"><div class="shell"><div class="eyebrow">Support</div><h1>Tell us what <span>went sideways.</span></h1><p class="lead">Questions, setup trouble, bug reports, and strange behavior are welcome. The fastest public path right now is EmberForge HQ on Discord. For security issues, use the security page instead of posting details publicly.</p></div></section>
-<section class="section"><div class="shell"><div class="support-grid"><article class="support-card card"><span class="num">GENERAL HELP</span><h3>Ask in EmberForge HQ.</h3><p>Good for setup help, Ember Vault questions, basic troubleshooting, and figuring out whether something is a bug or just an aggressively hidden setting.</p><a class="btn primary" href="https://discord.gg/WRv4fGv2PG">Open Discord</a></article><article class="support-card card"><span class="num">BUG REPORT</span><h3>Give us the useful bits.</h3><p>Include what you were trying to do, what you expected, what happened instead, exact error text, and reproduction steps when you have them.</p><a class="btn secondary" href="#report" data-support-type="Bug report">Build a bug report</a></article><article class="support-card card"><span class="num">SECURITY</span><h3>Please do not post vulnerabilities publicly.</h3><p>Security, privacy, credentials, or other sensitive issues need a quieter route.</p><a class="btn secondary" href="/security.html">Security reporting</a></article></div></div></section>
-<section class="section" id="report"><div class="shell"><div class="section-head"><div><div class="eyebrow">Report builder</div><h2>Make the useful details easy to send.</h2></div><p>This static form does not submit data to a backend. It creates an email or copies a structured report to your clipboard. No mysterious database, no pretending the button sent something when it did not.</p></div><form class="form-card card" id="supportForm"><div class="form-grid"><label class="field"><span>Request type</span><select id="requestType"><option>General support</option><option>Bug report</option><option>Feedback</option></select></label><label class="field"><span>Your email <small>(optional)</small></span><input id="replyEmail" type="email" placeholder="you@example.com"></label><label class="field full"><span>What were you trying to do?</span><textarea id="trying" rows="3" placeholder="Example: I was trying to configure an Ember Vault manager role."></textarea></label><label class="field full"><span>What did you expect to happen?</span><textarea id="expected" rows="3"></textarea></label><label class="field full"><span>What happened instead?</span><textarea id="actual" rows="4" placeholder="Include exact error text if you have it."></textarea></label><label class="field full"><span>Anything else? <small>(optional)</small></span><textarea id="extra" rows="3" placeholder="Command used, server context, steps to reproduce, browser/device, screenshots available, etc."></textarea></label></div><div class="form-actions"><button class="btn primary" type="button" id="openEmail">Open email app</button><button class="btn secondary" type="button" id="copyReport">Copy report</button><span class="form-status" id="formStatus" aria-live="polite"></span></div><p class="form-note">Do not include passwords, Discord tokens, API keys, payment information, database credentials, or other secrets.</p></form></div></section></main>
-<footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><strong>EmberForge</strong><p>Community tools built by people who actually run communities.</p></div><div class="footer-column"><h3>Forge</h3><a href="/">Home</a><a href="/creator.html">Meet the Creator</a></div><div class="footer-column"><h3>Products</h3><a href="/ember-vault.html">Ember Vault</a><a href="/ember-nexus.html">Ember Nexus</a></div><div class="footer-column"><h3>Help</h3><a href="/support.html">Support</a><a href="/security.html">Security</a><a href="https://discord.gg/WRv4fGv2PG">Discord</a></div></div><div class="shell footer-bottom"><span>© <span id="year">2026</span> EmberForge</span><span>Clear beats clever when something is broken.</span></div></footer><script src="/site.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<title>Support | EmberForge</title>
+<script>document.documentElement.classList.add('js');</script>
+<meta name="description" content="Get help with EmberForge and Ember Vault.">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #0b0d12;
+  --ink-2: #11131a;
+  --panel: #171a22;
+  --panel-2: #1e222c;
+  --turquoise: #00ced1;
+  --turquoise-soft: #62eef0;
+  --purple: #66023c;
+  --purple-soft: #9a245f;
+  --white: #f5f5f5;
+  --muted: #b8bcc7;
+  --muted-2: #858b98;
+  --line: rgba(245,245,245,.10);
+  --cyan-line: rgba(0,206,209,.25);
+  --purple-line: rgba(154,36,95,.30);
+  --shadow: 0 28px 80px rgba(0,0,0,.34);
+  --max: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--white);
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 8% -8%, rgba(102,2,60,.52), transparent 34rem),
+    radial-gradient(circle at 92% 8%, rgba(0,206,209,.16), transparent 28rem),
+    linear-gradient(180deg, #090b10 0%, #0d1016 46%, #090b10 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .15;
+  z-index: 999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+a { color: inherit; }
+.shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+  background: rgba(9,11,16,.78);
+  border-bottom: 1px solid rgba(245,245,245,.07);
+}
+
+.nav-inner {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.brand-mark {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(0,206,209,.18));
+}
+.brand em { font-style: normal; color: var(--turquoise); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #d7d9df;
+  font-size: .92rem;
+  font-weight: 700;
+}
+.nav-links a:hover { color: var(--turquoise-soft); }
+
+.nav-cta, .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 20px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid transparent;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.nav-cta, .btn.primary {
+  color: #071114;
+  background: linear-gradient(135deg, var(--turquoise-soft), var(--turquoise));
+  box-shadow: 0 14px 34px rgba(0,206,209,.17);
+}
+.nav-cta:hover, .btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(0,206,209,.25);
+}
+
+.btn.secondary {
+  color: var(--white);
+  border-color: rgba(245,245,245,.14);
+  background: rgba(245,245,245,.035);
+}
+.btn.secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--purple-soft);
+  background: rgba(102,2,60,.18);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--turquoise-soft);
+  font-size: .76rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--purple-soft), var(--turquoise));
+  box-shadow: 0 0 12px rgba(0,206,209,.45);
+}
+
+h1, h2, h3, .display {
+  font-family: "Fraunces", Georgia, serif;
+  margin: 0;
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+h1 { font-size: clamp(3.4rem, 6.1vw, 6.35rem); }
+h2 { font-size: clamp(2.45rem, 4vw, 4.5rem); }
+h3 { font-size: 1.45rem; line-height: 1.1; }
+
+.lead {
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 680px;
+}
+
+.glow-word {
+  color: var(--turquoise);
+  text-shadow: 0 0 28px rgba(0,206,209,.14);
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.card {
+  position: relative;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(102,2,60,.17), transparent 15rem),
+    linear-gradient(145deg, rgba(30,34,44,.94), rgba(18,20,27,.96));
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(245,245,245,.025);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+.card::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  width: 76px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--turquoise));
+}
+
+.site-footer {
+  border-top: 1px solid rgba(245,245,245,.07);
+  padding: 58px 0 28px;
+  background: linear-gradient(180deg, rgba(17,19,26,.72), rgba(8,10,14,.96));
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.7fr repeat(3, .75fr);
+  gap: 42px;
+}
+.footer-brand p { max-width: 460px; color: #a9adb7; margin: 14px 0 0; }
+.footer-small { color: #777e8a !important; font-size: .9rem; }
+.footer-column { display: grid; gap: 10px; align-content: start; }
+.footer-column h3 {
+  font-family: "Manrope", sans-serif;
+  margin: 0 0 4px;
+  color: var(--turquoise);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: .77rem;
+}
+.footer-column a, .footer-column span {
+  color: #aeb2bb;
+  text-decoration: none;
+  font-size: .93rem;
+}
+.footer-column a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 38px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(245,245,245,.07);
+  color: #717783;
+  font-size: .86rem;
+}
+
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 940px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .shell { width: min(100% - 26px, var(--max)); }
+  .nav-inner { min-height: 70px; }
+  .brand-mark { width: 46px; height: 46px; }
+  .nav-cta { display: none; }
+  .section { padding: 74px 0; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+.support-hero {
+  padding: 86px 0 36px;
+  display:grid;
+  grid-template-columns:1fr .72fr;
+  gap:64px;
+  align-items:end;
+}
+.support-hero h1 { margin-top:14px; max-width:760px; }
+.support-hero .lead { margin:22px 0 0; }
+.support-note {
+  padding:24px 26px;
+  border-left:3px solid var(--turquoise);
+  background:linear-gradient(90deg, rgba(102,2,60,.22), rgba(0,206,209,.04));
+  color:#c3c6ce;
+}
+.support-note strong { display:block; color:var(--white); margin-bottom:6px; }
+
+.support-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  padding:32px 0 92px;
+}
+.support-card {
+  padding:30px;
+  min-height:270px;
+  display:flex;
+  flex-direction:column;
+}
+.support-card .icon {
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  margin-bottom:38px;
+  border:1px solid rgba(0,206,209,.26);
+  background:rgba(0,206,209,.06);
+  font-weight:800;
+  color:var(--turquoise-soft);
+}
+.support-card:nth-child(2) .icon {
+  border-color:rgba(154,36,95,.45);
+  background:rgba(102,2,60,.18);
+  color:#e19abb;
+}
+.support-card h2 { font-size:1.75rem; margin-bottom:13px; }
+.support-card p { margin:0 0 24px; color:#a9adb7; }
+.support-link {
+  margin-top:auto;
+  color:var(--turquoise);
+  text-decoration:none;
+  font-weight:800;
+}
+.support-link:hover { color:var(--turquoise-soft); }
+
+.bug-guide {
+  padding:38px;
+  margin-bottom:100px;
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:58px;
+}
+.bug-guide p { color:var(--muted); }
+.checks {
+  display:grid;
+  gap:12px;
+}
+.check {
+  padding:14px 16px;
+  border:1px solid rgba(245,245,245,.07);
+  background:rgba(245,245,245,.025);
+  color:#c5c8cf;
+}
+.check b { color:var(--turquoise-soft); }
+
+
+.support-form {
+  padding: 42px;
+  margin-bottom: 100px;
+}
+.form-intro {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+.form-intro p {
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.field {
+  display: grid;
+  gap: 8px;
+}
+.field.full {
+  grid-column: 1 / -1;
+}
+.field > span {
+  font-weight: 800;
+  color: #e7e8eb;
+  font-size: .92rem;
+}
+.field small {
+  color: var(--muted-2);
+  font-weight: 600;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  color: var(--white);
+  font: inherit;
+  background:
+    linear-gradient(145deg, rgba(102,2,60,.11), rgba(0,206,209,.025)),
+    #11141b;
+  border: 1px solid rgba(245,245,245,.10);
+  padding: 14px 15px;
+  outline: none;
+  resize: vertical;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #666d79;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(0,206,209,.09);
+  background:
+    linear-gradient(145deg, rgba(102,2,60,.15), rgba(0,206,209,.04)),
+    #12161d;
+}
+.field select option {
+  background: #11141b;
+  color: var(--white);
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+}
+.form-actions button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .94rem;
+}
+.form-status {
+  color: var(--turquoise-soft);
+  font-size: .9rem;
+  min-height: 1.4em;
+}
+.form-note {
+  margin: 18px 0 0;
+  color: #737a86;
+  font-size: .86rem;
+  max-width: 850px;
+}
+
+@media (max-width:940px) {
+  .support-hero, .bug-guide { grid-template-columns:1fr; gap:26px; }
+  .support-grid { grid-template-columns:1fr; }
+  .form-grid { grid-template-columns:1fr; }
+  .field.full { grid-column:auto; }
+  .support-form { padding:28px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="shell nav-inner">
+    <a class="brand" href="/" aria-label="EmberForge home">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="/emberforge-mark.png" alt="">
+      </span>
+      <span>Ember<em>Forge</em></span>
+    </a>
+    <div class="nav-links" aria-label="Primary navigation">
+      <a href="/#products">Projects</a>
+      <a href="/#why">How we build</a>
+      <a href="/creator.html">Meet the Creator</a>
+      <a href="/support.html">Support</a>
+      <a class="nav-cta" href="/ember-vault.html">Explore Ember Vault</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="shell support-hero">
+  <div class="reveal">
+    <div class="eyebrow">Help</div>
+    <h1>Need a hand?</h1>
+    <p class="lead">Whether Ember Vault is refusing to cooperate, you found a bug, or you just need help figuring something out, start here. No seventeen-menu scavenger hunt required.</p>
+  </div>
+  <aside class="support-note reveal">
+    <strong>One useful rule:</strong>
+    If something broke, tell us what you were doing, what you expected, and what actually happened. That usually gets us to the answer much faster.
+  </aside>
+</section>
+
+<section class="shell support-grid">
+  <article class="support-card card reveal">
+    <div class="icon">?</div>
+    <h2>Get help</h2>
+    <p>Setup trouble, configuration questions, account issues, or something that simply refuses to behave.</p>
+    <a class="support-link" href="#support-form" data-support-type="support">Open support form →</a>
+  </article>
+
+  <article class="support-card card reveal">
+    <div class="icon">!</div>
+    <h2>Report a bug</h2>
+    <p>Found something broken or weird? Tell us what happened and, if possible, how to make it happen again.</p>
+    <a class="support-link" href="#support-form" data-support-type="bug">Open bug report →</a>
+  </article>
+
+  <article class="support-card card reveal">
+    <div class="icon">◇</div>
+    <h2>Security</h2>
+    <p>Found a vulnerability or security issue? Use the security route so it gets handled with the care it deserves.</p>
+    <a class="support-link" href="/security.html">Report a security issue →</a>
+  </article>
+</section>
+
+
+<section class="shell" id="support-form">
+  <form class="support-form card reveal" id="emberSupportForm">
+    <div class="form-intro">
+      <div class="eyebrow">Tell us what happened</div>
+      <h2>Send the useful bits.</h2>
+      <p>You can fill this out right here. When you're done, use <strong>Open email app</strong> to create a pre-filled message, or <strong>Copy report</strong> if you'd rather paste it somewhere else.</p>
+    </div>
+
+    <div class="form-grid">
+      <label class="field">
+        <span>What do you need help with?</span>
+        <select id="requestType" name="requestType">
+          <option value="General support">General support</option>
+          <option value="Bug report">Bug report</option>
+          <option value="Setup / configuration">Setup / configuration</option>
+          <option value="Account / access">Account / access</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Your email <small>(optional)</small></span>
+        <input id="replyEmail" name="replyEmail" type="email" placeholder="you@example.com">
+      </label>
+
+      <label class="field full">
+        <span>What were you trying to do?</span>
+        <textarea id="trying" name="trying" rows="3" placeholder="Example: I was trying to configure a manager role for Ember Vault."></textarea>
+      </label>
+
+      <label class="field full">
+        <span>What did you expect to happen?</span>
+        <textarea id="expected" name="expected" rows="3" placeholder="What should have happened?"></textarea>
+      </label>
+
+      <label class="field full">
+        <span>What happened instead?</span>
+        <textarea id="actual" name="actual" rows="4" placeholder="Include the exact error text if you have it."></textarea>
+      </label>
+
+      <label class="field full">
+        <span>Anything else we should know? <small>(optional)</small></span>
+        <textarea id="extra" name="extra" rows="3" placeholder="Server name, command used, browser/device, steps to reproduce, etc."></textarea>
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn primary" type="button" id="openEmail">Open email app</button>
+      <button class="btn secondary" type="button" id="copyReport">Copy report</button>
+      <span class="form-status" id="formStatus" aria-live="polite"></span>
+    </div>
+
+    <p class="form-note">
+      This site is currently static, so the form does not send anything by itself. The buttons above create or copy the report for you without pretending it vanished into a mysterious support database.
+    </p>
+  </form>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <strong>EmberForge</strong>
+      <p>Community tools built by people who actually run communities.</p>
+      <p class="footer-small">Built carefully. Refined constantly. Occasionally argued with.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Forge</h3>
+      <a href="/#products">Projects</a>
+      <a href="/#why">How we build</a>
+      <a href="/creator.html">Meet the Creator</a>
+    </div>
+    <div class="footer-column">
+      <h3>Products</h3>
+      <a href="/ember-vault.html">Ember Vault</a>
+      <span>More tools eventually. Probably.</span>
+    </div>
+    <div class="footer-column">
+      <h3>Help</h3>
+      <a href="/support.html">Support</a>
+      <a href="/security.html">Security</a>
+      <a href="mailto:ever_forge@outlook.com">Contact</a>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>© <span id="year">2026</span> EmberForge</span>
+    <span>Built in the Forge.</span>
+  </div>
+</footer>
+
+<script>
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const requestType = document.getElementById('requestType');
+const replyEmail = document.getElementById('replyEmail');
+const trying = document.getElementById('trying');
+const expected = document.getElementById('expected');
+const actual = document.getElementById('actual');
+const extra = document.getElementById('extra');
+const statusEl = document.getElementById('formStatus');
+
+document.querySelectorAll('[data-support-type]').forEach(link => {
+  link.addEventListener('click', () => {
+    requestType.value = link.dataset.supportType === 'bug' ? 'Bug report' : 'General support';
+    setTimeout(() => trying.focus(), 250);
+  });
+});
+
+function buildReport() {
+  return [
+    `Request type: ${requestType.value}`,
+    `Reply email: ${replyEmail.value.trim() || 'Not provided'}`,
+    '',
+    'What I was trying to do:',
+    trying.value.trim() || '(not provided)',
+    '',
+    'What I expected:',
+    expected.value.trim() || '(not provided)',
+    '',
+    'What happened instead:',
+    actual.value.trim() || '(not provided)',
+    '',
+    'Anything else:',
+    extra.value.trim() || '(not provided)'
+  ].join('\\n');
+}
+
+document.getElementById('openEmail').addEventListener('click', () => {
+  const subject = `EmberForge ${requestType.value}`;
+  const body = buildReport();
+  window.location.href = `mailto:ever_forge@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  statusEl.textContent = 'Opening your email app...';
+});
+
+document.getElementById('copyReport').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(buildReport());
+    statusEl.textContent = 'Copied. Ready to paste.';
+  } catch (err) {
+    statusEl.textContent = 'Could not copy automatically.';
+  }
+});
+</script>
+</body>
+</html>
