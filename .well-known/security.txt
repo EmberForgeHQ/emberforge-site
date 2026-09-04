@@ -1,4 +1,4 @@
-Contact: mailto:ever_forge@outlook.com
+Contact: mailto:security@emberforgehq.com
 Expires: 2027-08-31T23:59:59Z
 Canonical: https://emberforgehq.com/.well-known/security.txt
 Policy: https://emberforgehq.com/security.html
