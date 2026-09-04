@@ -148,8 +148,8 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
     <div>
       <div class="product-kicker">EmberForge Product 01</div>
       <h1>Meet <span>Ember Vault.</span></h1>
-      <p class="lead">A configurable Discord economy platform with guild-isolated wallets, transactions, shops, vouchers, rewards, role income, delegated management, and per-server settings. Ember Vault now runs independently on EmberForge infrastructure and is being prepared for public beta.</p>
-      <div class="hero-status"><i></i>Active development · independent runtime · beta preparation</div>
+      <p class="lead">A configurable Discord economy platform with guild-isolated wallets, transactions, shops, reward categories, vouchers, redemptions, role income, delegated management, and per-server settings. Ember Vault runs independently on EmberForge infrastructure and is being prepared for public beta.</p>
+      <div class="hero-status"><i></i>Operational · active development · beta preparation</div>
       <div class="product-actions">
         <a class="btn primary" href="#current">See what's working</a>
         <a class="btn secondary" href="https://discord.gg/WRv4fGv2PG">Follow beta progress</a>
@@ -158,13 +158,13 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
 
     <div class="vault-shell card">
       <div class="vault-demo">
-        <div class="vault-demo-top"><strong>Ember Vault</strong><span>Independent service online</span></div>
+        <div class="vault-demo-top"><strong>Ember Vault</strong><span>Monitored service online</span></div>
         <div class="vault-demo-balance"><small>Example guild balance</small><strong><em>✦</em> 12,450 Credits</strong></div>
         <div class="vault-demo-grid">
           <div class="vault-stat"><span>Economy scope</span><strong>Per guild</strong></div>
-          <div class="vault-stat"><span>Active commands</span><strong>16</strong></div>
+          <div class="vault-stat"><span>Public commands</span><strong>17</strong></div>
           <div class="vault-stat"><span>Management</span><strong>Delegatable</strong></div>
-          <div class="vault-stat"><span>Public stage</span><strong>Pre-beta</strong></div>
+          <div class="vault-stat"><span>Reliability</span><strong>Restore-tested</strong></div>
         </div>
       </div>
     </div>
@@ -182,9 +182,27 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
       <article class="feature-card card"><span class="num">01 / ISOLATION</span><h3>Every guild gets its own economy.</h3><p>Wallets, transactions, cooldowns, rewards, shops, inventory, vouchers, redemptions, role income, and settings stay scoped to the Discord server that owns them.</p></article>
       <article class="feature-card card"><span class="num">02 / CONFIGURATION</span><h3>Shape it around your server.</h3><p>Configure currency names and symbols, starting balances, manager roles, and transaction log channels per guild.</p></article>
       <article class="feature-card card"><span class="num">03 / ACCESS</span><h3>Delegate without over-permissioning.</h3><p>Trusted managers can administer Ember Vault without needing full Discord Administrator access.</p></article>
-      <article class="feature-card card"><span class="num">04 / MARKETPLACE</span><h3>Fulfillment stays inside the right walls.</h3><p>Rewards, shops, inventory, vouchers, purchases, and redemptions are guild-aware so one server cannot see or manage another server's records.</p></article>
-      <article class="feature-card card"><span class="num">05 / OPERATIONS</span><h3>It has its own house now.</h3><p>Ember Vault runs as its own systemd service with its own Linux service identity and database on EmberForge's application infrastructure.</p></article>
-      <article class="feature-card card"><span class="num">06 / GROWTH</span><h3>Core first. Power later.</h3><p>Onboarding, documentation, beta readiness, richer admin controls, dashboard work, analytics, and automation remain ahead.</p></article>
+      <article class="feature-card card"><span class="num">04 / MARKETPLACE</span><h3>Shop safely. Fulfill cleanly.</h3><p>Reward categories, shops, inventory, vouchers, purchases, and redemptions are guild-aware. Shop purchases run atomically so a failed fulfillment cannot quietly eat someone&apos;s balance.</p></article>
+      <article class="feature-card card"><span class="num">05 / OPERATIONS</span><h3>Built like something we expect people to rely on.</h3><p>Ember Vault runs as its own systemd service with an isolated Linux identity and database, local crash monitoring, automatic MySQL recovery behavior, and restore-tested application backups.</p></article>
+      <article class="feature-card card"><span class="num">06 / SCALE</span><h3>Large catalogs should stay usable.</h3><p>Shop browsing, reward lists, category views, and uncategorized views now support pagination, with search/filtering and broader beta onboarding still ahead.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <div><div class="eyebrow">Current product state</div><h2>The boring parts got stronger.</h2></div>
+      <p>The visible economy features matter, but recent work has focused heavily on the parts that make those features trustworthy: atomic transactions, safer redemption states, scalable browsing, guild-aware configuration, and service recovery.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card card"><span class="num">17 / COMMANDS</span><h3>A real public command surface.</h3><p>Balance, pay, daily, work, crime, shop, inventory, leaderboard, transactions, wallet, vault, vouchers, redemptions, rewards, categories, role income, and setup are currently exposed publicly.</p></article>
+      <article class="feature-card card"><span class="num">ATOMIC / SHOP</span><h3>Purchases succeed together or fail together.</h3><p>Balance deduction, transaction logging, and reward delivery are wrapped in one database transaction. If fulfillment fails, the purchase rolls back.</p></article>
+      <article class="feature-card card"><span class="num">SAFE / REDEMPTIONS</span><h3>State changes have rules now.</h3><p>Pending redemptions can be fulfilled or cancelled, but completed and cancelled records cannot be flipped into contradictory states later.</p></article>
+      <article class="feature-card card"><span class="num">CATEGORIES</span><h3>Large shops can actually stay organized.</h3><p>Reward categories are guild-scoped, sortable, enableable, renameable, and safe to delete without deleting the rewards inside them.</p></article>
+      <article class="feature-card card"><span class="num">PAGINATION</span><h3>More than ten things no longer becomes a wall.</h3><p>Shop, category, uncategorized, and reward-list views paginate cleanly with friendly page handling and consistent footers.</p></article>
+      <article class="feature-card card"><span class="num">RECOVERY</span><h3>Failure has a path back.</h3><p>Local watchdogs and a dedicated crash watcher observe the service, while MySQL recovery is configured to bring Ember Vault back when the database returns.</p></article>
     </div>
   </div>
 </section>
@@ -212,16 +230,33 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
 
     <div class="plan-grid">
       <article class="plan card">
-        <div class="tier">Spark</div><h3>Free</h3><div class="price">$0</div>
-        <ul><li>1 Discord guild</li><li>Genuinely useful core economy</li><li>Wallets, transactions, shops, vouchers, rewards, and role income</li><li>Designed to be useful without becoming an upgrade trap</li></ul>
+        <div class="tier">Spark · current direction</div><h3>Free</h3><div class="price">$0</div>
+        <ul>
+          <li>1 Discord guild</li>
+          <li>25 shop listings</li>
+          <li>3 reward categories</li>
+          <li>5 role-income rules</li>
+          <li>5 voucher types</li>
+          <li>24-hour logs</li>
+          <li>Wallets, payments, daily, work, crime, leaderboard, inventory, currency, and starting-balance configuration</li>
+        </ul>
       </article>
       <article class="plan card featured">
-        <div class="tier">Inferno · planned</div><h3>For communities that need more room</h3><div class="price">$4.99/month</div>
-        <ul><li>2 guilds included in the current plan</li><li>Up to 5 total guilds</li><li>Higher limits across shops, vouchers, rewards, role income, and managers</li><li>Advanced automation, configuration, and analytics direction</li><li>Additional guild slots currently planned at $1.49/month</li></ul>
+        <div class="tier">Inferno · current direction</div><h3>For communities that need more room</h3><div class="price">$4.99/month</div>
+        <ul>
+          <li>2 Discord guilds included</li>
+          <li>Up to 5 total guilds with add-ons</li>
+          <li>500 shop listings</li>
+          <li>50 reward categories</li>
+          <li>100 role-income rules</li>
+          <li>250 voucher types</li>
+          <li>5-day logs</li>
+          <li>Additional guild slots currently planned at $1.49/month</li>
+        </ul>
       </article>
     </div>
 
-    <p class="plan-note"><strong>Still pre-beta:</strong> Spark, Inferno, pricing, limits, and retention windows are current product planning rather than launch guarantees. We would rather revise a draft now than publish a bad promise later.</p>
+    <p class="plan-note"><strong>Still pre-beta:</strong> Spark, Inferno, pricing, limits, and retention windows remain current product planning rather than launch guarantees. The product is operational, but the commercial model is still being finalized before public beta.</p>
   </div>
 </section>
 
@@ -240,7 +275,7 @@ h1{font-size:clamp(3.4rem,6.1vw,6.25rem)} h2{font-size:clamp(2.4rem,4vw,4.4rem)}
     <div class="footer-brand"><strong>EmberForge</strong><p>Community tools built by people who actually run communities.</p><p class="footer-small">Built carefully. Refined constantly. Occasionally argued with.</p></div>
     <div class="footer-column"><h3>Forge</h3><a href="/#products">Projects</a><a href="/#why">How we build</a><a href="/creator.html">Meet the Creator</a></div>
     <div class="footer-column"><h3>Products</h3><a href="/ember-vault.html">Ember Vault</a><a href="/ember-nexus.html">Ember Nexus</a></div>
-    <div class="footer-column"><h3>Help</h3><a href="/support.html">Support</a><a href="/security.html">Security</a><a href="mailto:ever_forge@outlook.com">Contact</a></div>
+    <div class="footer-column"><h3>Help</h3><a href="/support.html">Support</a><a href="/security.html">Security</a><a href="mailto:support@emberforgehq.com">Contact</a></div>
   </div>
   <div class="shell footer-bottom"><span>© <span id="year">2026</span> EmberForge</span><span>Built in the Forge.</span></div>
 </footer>

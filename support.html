@@ -469,11 +469,11 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <div class="reveal">
     <div class="eyebrow">Help</div>
     <h1>Need a hand?</h1>
-    <p class="lead">Whether Ember Vault is refusing to cooperate, you found a bug, you have a question about Ember Nexus, or you just need help figuring something out, start here. EmberForge HQ is also open for public help, updates, and beta questions.</p>
+    <p class="lead">Whether Ember Vault is refusing to cooperate, you found a bug, you have a question about Ember Nexus, or you just need help figuring something out, start here. EmberForge HQ now has dedicated support tickets for Ember Vault help, bug reports, and other contact requests.</p>
   </div>
   <aside class="support-note reveal">
     <strong>One useful rule:</strong>
-    If something broke, tell us what you were doing, what you expected, and what actually happened. For anything involving credentials, private account details, or security-sensitive information, do not post it in a public Discord channel.
+    If something broke, tell us what you were doing, what you expected, and what actually happened. Use a private support ticket for account-specific details. For credentials, tokens, private account information, or security-sensitive reports, use the dedicated security route instead.
   </aside>
 </section>
 
@@ -481,21 +481,21 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
   <article class="support-card card reveal">
     <div class="icon">?</div>
     <h2>Get help</h2>
-    <p>Setup trouble, configuration questions, account issues, beta questions, or something that simply refuses to behave.</p>
-    <a class="support-link" href="https://discord.gg/WRv4fGv2PG">Visit EmberForge HQ →</a>
+    <p>Setup trouble, configuration questions, account issues, beta questions, or something that simply refuses to behave. Open an Ember Vault Support ticket in EmberForge HQ for private help.</p>
+    <a class="support-link" href="https://discord.gg/WRv4fGv2PG">Open EmberForge HQ →</a>
   </article>
 
   <article class="support-card card reveal">
     <div class="icon">!</div>
     <h2>Report a bug</h2>
-    <p>Found something broken or weird? Tell us what happened and, if possible, how to make it happen again. The report builder below is the cleanest route for detailed reproduction steps.</p>
+    <p>Found something broken or weird? Tell us what happened and, if possible, how to make it happen again. You can use the report builder below, then paste the result into a Bug Report ticket or send it by email.</p>
     <a class="support-link" href="#support-form" data-support-type="bug">Open bug report →</a>
   </article>
 
   <article class="support-card card reveal">
     <div class="icon">◇</div>
     <h2>Security</h2>
-    <p>Found a vulnerability or security issue? Use the security route so it gets handled with the care it deserves.</p>
+    <p>Found a vulnerability or security issue? Use the dedicated security route and security@emberforgehq.com so the report stays private.</p>
     <a class="support-link" href="/security.html">Report a security issue →</a>
   </article>
 </section>
@@ -505,7 +505,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     <div class="form-intro">
       <div class="eyebrow">Tell us what happened</div>
       <h2>Send the useful bits.</h2>
-      <p>You can fill this out right here. When you're done, use <strong>Open email app</strong> to create a pre-filled message, or <strong>Copy report</strong> if you'd rather paste it into EmberForge HQ or another support channel.</p>
+      <p>You can fill this out right here. When you're done, use <strong>Open email app</strong> to create a pre-filled message to support@emberforgehq.com, or <strong>Copy report</strong> and paste it into the appropriate private EmberForge HQ ticket.</p>
     </div>
 
     <div class="form-grid">
@@ -553,7 +553,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
     </div>
 
     <p class="form-note">
-      This site is currently static, so the form does not send anything by itself. The buttons above create or copy the report for you. Public help is available in EmberForge HQ, while private ticketing is planned for issues that should not live in a public channel.
+      This site is currently static, so the form does not send anything by itself. The buttons above create or copy the report for you. EmberForge HQ private ticketing is live for Ember Vault Support, Bug Reports, and Other / Contact Us requests.
     </p>
   </form>
 </section>
@@ -582,7 +582,7 @@ h3 { font-size: 1.45rem; line-height: 1.1; }
       <a href="/support.html">Support</a>
       <a href="/security.html">Security</a>
       <a href="https://discord.gg/WRv4fGv2PG">Discord</a>
-      <a href="mailto:ever_forge@outlook.com">Contact</a>
+      <a href="mailto:support@emberforgehq.com">Contact</a>
     </div>
   </div>
   <div class="shell footer-bottom">
@@ -640,9 +640,9 @@ function buildReport() {
 }
 
 document.getElementById('openEmail').addEventListener('click', () => {
-  const subject = `EmberForge ${requestType.value}`;
+  const subject = `EmberForge Support — ${requestType.value}`;
   const body = buildReport();
-  window.location.href = `mailto:ever_forge@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:support@emberforgehq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   statusEl.textContent = 'Opening your email app...';
 });
 
