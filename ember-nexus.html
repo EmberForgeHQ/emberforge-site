@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090D14">
 <title>Ember Nexus | EmberForge</title>
-<meta name="description" content="Ember Nexus is EmberForge's planned customizable, multi-game integration platform for connecting game servers, Discord, websites, shops, identities, and automation.">
+<meta name="description" content="Ember Nexus is EmberForge's connection layer for game communities. Nexus ARK begins with free ARK cross-chat and expands through monitoring, automation, safe RCON tools, and insights.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
@@ -110,10 +110,10 @@ h3{font-size:1.45rem}
 
 .status-pill{
   display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:8px 12px;
-  border:1px solid rgba(131,103,255,.25);background:rgba(131,103,255,.075);
-  color:#d7d0ff;font-size:.82rem;font-weight:700
+  border:1px solid rgba(36,215,232,.24);background:rgba(36,215,232,.07);
+  color:#c7f8fb;font-size:.82rem;font-weight:700
 }
-.status-dot{width:7px;height:7px;border-radius:50%;background:var(--violet-soft);box-shadow:0 0 10px rgba(131,103,255,.65)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan-soft);box-shadow:0 0 10px rgba(36,215,232,.65)}
 
 .nexus-shell{padding:28px;min-height:440px;overflow:hidden}
 .nexus-shell::before{
@@ -153,13 +153,27 @@ h3{font-size:1.45rem}
 .feature-card h3{margin:52px 0 12px}
 .feature-card p{margin:0;color:#9faabc}
 
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.plan-card{padding:34px}
+.plan-card.featured{border-color:rgba(36,215,232,.24)}
+.plan-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}
+.plan-name{color:var(--cyan-soft);font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800}
+.plan-price{font-family:"Fraunces",Georgia,serif;font-size:2.2rem;line-height:1;color:var(--white)}
+.plan-price small{font-family:"Manrope",sans-serif;font-size:.8rem;color:var(--muted);font-weight:600}
+.plan-card h3{margin:12px 0}
+.plan-card p{color:var(--muted)}
+.plan-list{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.plan-list li{color:#c7d0dd;font-size:.94rem}
+.plan-list li::before{content:"+";color:var(--cyan);font-weight:800;margin-right:10px}
+.plan-note{margin-top:18px;color:#8794a7;font-size:.86rem}
+
 .architecture{
   display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center
 }
 .arch-panel{padding:34px}
 .stack{display:grid;gap:10px;margin-top:18px}
 .stack-row{
-  display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;padding:15px 16px;
+  display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:center;padding:15px 16px;
   border:1px solid rgba(244,247,250,.07);background:rgba(244,247,250,.024)
 }
 .stack-row strong{color:var(--cyan-soft)}
@@ -170,6 +184,13 @@ h3{font-size:1.45rem}
 .principle strong{display:block;color:var(--violet-soft);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 .principle h3{margin:16px 0 10px}
 .principle p{margin:0;color:var(--muted)}
+
+.callout{
+  padding:28px 30px;margin-top:24px;border:1px solid rgba(36,215,232,.18);
+  background:linear-gradient(135deg,rgba(36,215,232,.055),rgba(131,103,255,.045));
+  color:#c8d1de
+}
+.callout strong{color:var(--cyan-soft)}
 
 .roadmap{display:grid;gap:14px}
 .phase{
@@ -213,7 +234,7 @@ h3{font-size:1.45rem}
   .nav-links a:not(.nav-cta){display:none}
   .footer-grid{grid-template-columns:1fr 1fr}
   .product-hero-grid,.section-head,.architecture{grid-template-columns:1fr}
-  .feature-grid{grid-template-columns:1fr}
+  .feature-grid,.pricing-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .network{min-height:470px}
@@ -257,22 +278,22 @@ h3{font-size:1.45rem}
     <div>
       <div class="product-kicker">EmberForge Product 02</div>
       <h1>Meet <span>Ember Nexus.</span></h1>
-      <p class="lead">A planned customizable, multi-game integration platform for connecting dedicated game servers, Discord, websites, shops, player identities, events, and automation through one extensible system. Phoenix Clan Rising is intended to be the first proving ground, not a permanent product assumption.</p>
-      <div class="status-pill"><span class="status-dot"></span>Concept / pre-development planning</div>
+      <p class="lead">The connection layer around your game community. Nexus begins with ARK, linking servers and Discord through secure cross-chat infrastructure before expanding into monitoring, automation, safe remote controls, and community insights.</p>
+      <div class="status-pill"><span class="status-dot"></span>Nexus ARK foundation &amp; architecture locked • Pre-production</div>
       <div class="product-actions">
-        <a class="btn primary" href="#roadmap">See the roadmap</a>
-        <a class="btn secondary" href="#architecture">How it connects</a>
+        <a class="btn primary" href="#plans">Explore Nexus ARK</a>
+        <a class="btn secondary" href="#architecture">How it works</a>
       </div>
     </div>
 
-    <div class="nexus-shell card" aria-label="Ember Nexus connection concept">
+    <div class="nexus-shell card" aria-label="Nexus ARK connection architecture">
       <div class="network">
-        <div class="node n1">ARK</div>
-        <div class="node n2">Minecraft</div>
-        <div class="node n3">Palworld</div>
-        <div class="node n4">Conan</div>
+        <div class="node n1">ARK Server A</div>
+        <div class="node n2">ARK Server B</div>
+        <div class="node n3">ARK Server C</div>
+        <div class="node n4">Nexus Agent</div>
         <div class="node n5">Discord</div>
-        <div class="node n6">Website</div>
+        <div class="node n6">Dashboard</div>
         <div class="core"><div><span>Ember</span>Nexus</div></div>
       </div>
     </div>
@@ -284,61 +305,163 @@ h3{font-size:1.45rem}
     <div class="section-head">
       <div>
         <div class="eyebrow">Why Nexus exists</div>
-        <h2>One connection point. A lot fewer disconnected pieces.</h2>
+        <h2>ARK is the foundation. Connections are the product.</h2>
       </div>
-      <p>Ember Nexus started with a crosschat problem and immediately grew teeth. Instead of building another one-off replacement for one game, the idea became a reusable platform where communities can connect the systems they already run, choose which capabilities they need, and decide how those systems should talk to each other.</p>
+      <p>Nexus started with a simple problem: reliable cross-chat should not require a community to hand over its entire server operation. Instead of rebuilding deep in-game administration, Nexus focuses on the infrastructure around ARK: message routing, Discord integration, monitoring, automation, safe remote actions, and the systems that help clusters stay connected.</p>
     </div>
 
     <div class="feature-grid">
       <article class="feature-card card">
-        <span class="num">01 / CROSSCHAT</span>
-        <h3>Route conversation where it belongs.</h3>
-        <p>Game-to-game, game-to-Discord, Discord-to-game, cross-game routes, labels, moderation, filters, and loop prevention.</p>
+        <span class="num">01 / CROSS-CHAT</span>
+        <h3>Connect the whole cluster.</h3>
+        <p>ARK → ARK, ARK → Discord, and Discord → ARK routing with server aliases, chat groups, basic formatting, mute controls, and loop-safe event handling.</p>
       </article>
       <article class="feature-card card">
-        <span class="num">02 / COMMERCE</span>
-        <h3>Connect websites to game shops.</h3>
-        <p>Catalogs, currencies, orders, fulfillment queues, delivery state, and adapter-based in-game fulfillment.</p>
+        <span class="num">02 / OPERATIONS</span>
+        <h3>Know when something actually matters.</h3>
+        <p>Premium monitoring tracks agents, servers, capabilities, routes, incidents, disconnects, recoveries, and degraded states without turning every hiccup into an alarm bell.</p>
       </article>
       <article class="feature-card card">
-        <span class="num">03 / MULTI-GAME</span>
-        <h3>Game-agnostic at the core.</h3>
-        <p>The current direction is for ARK, Minecraft, Palworld, Conan, and future games to connect through adapters instead of being baked into Nexus Core.</p>
+        <span class="num">03 / AUTOMATION</span>
+        <h3>React without bypassing safety.</h3>
+        <p>Premium automation follows a clear WHEN → IF → THEN model and re-checks entitlement, capability, permission, current state, and safety before acting.</p>
       </article>
       <article class="feature-card card">
-        <span class="num">04 / IDENTITY</span>
-        <h3>Link the person behind the accounts.</h3>
-        <p>A future identity layer can connect Discord and game identities into one community account without pretending every platform works the same way.</p>
+        <span class="num">04 / RCON</span>
+        <h3>Remote control without raw-console roulette.</h3>
+        <p>An optional RCON layer provides approved actions such as player lookups, broadcasts, saves, kicks, bans, and restart workflows without exposing unrestricted console access.</p>
       </article>
       <article class="feature-card card">
-        <span class="num">05 / AUTOMATION</span>
-        <h3>When this happens, do that.</h3>
-        <p>A future WHEN → IF → THEN engine is planned for alerts, rewards, shop delivery, events, maintenance workflows, and more.</p>
+        <span class="num">05 / INSIGHTS</span>
+        <h3>Understand activity, not individuals.</h3>
+        <p>Optional community-level analytics can show chat volume, busy maps, peak hours, and trends without building player dossiers or creepy engagement rankings.</p>
       </article>
       <article class="feature-card card">
-        <span class="num">06 / CONTROL</span>
-        <h3>No-code first. API always.</h3>
-        <p>The planned control model combines dashboard configuration for regular admins, deeper controls for power users, and API access for developers.</p>
+        <span class="num">06 / MANY DOORS</span>
+        <h3>One brain. Multiple interfaces.</h3>
+        <p>Discord and the future dashboard both talk to the same Nexus Core, so permissions, safety, monitoring, actions, and audit behavior stay consistent everywhere.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<section class="section" id="plans">
+  <div class="shell">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Nexus ARK plans</div>
+        <h2>Free connects your cluster. Premium operates it at scale.</h2>
+      </div>
+      <p>Pricing is designed to be understandable without a scavenger hunt. Core handles communication. Premium adds operations. RCON adds safe server control. Insights adds community-level analytics.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="plan-card card featured">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">Nexus ARK Core</div>
+            <h3>Cross-chat without the paywall maze.</h3>
+          </div>
+          <div class="plan-price">$0</div>
+        </div>
+        <p>Full cross-chat for communities that want their ARK servers and Discord talking to each other without paying before the first useful message is sent.</p>
+        <ul class="plan-list">
+          <li>Up to 15 connected ARK servers</li>
+          <li>Up to 2 clusters / chat groups</li>
+          <li>ARK → ARK cross-chat</li>
+          <li>ARK → Discord and Discord → ARK</li>
+          <li>Server aliases and basic formatting</li>
+          <li>Group-based routing</li>
+          <li>Mute / unmute controls</li>
+          <li>Basic connection state</li>
+        </ul>
+      </article>
+
+      <article class="plan-card card">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">Nexus ARK Premium</div>
+            <h3>Operate larger communities with more control.</h3>
+          </div>
+          <div class="plan-price">$4.99 <small>/ month</small></div>
+        </div>
+        <p>Premium keeps Core intact and adds the operational layer for larger clusters, staff teams, monitoring, and configurable automation.</p>
+        <ul class="plan-list">
+          <li>Unlimited connected ARK servers</li>
+          <li>Up to 10 clusters / chat groups</li>
+          <li>Advanced routing and formatting</li>
+          <li>Filters and moderation controls</li>
+          <li>Scheduled / recurring announcements</li>
+          <li>Monitoring and incident alerts</li>
+          <li>Automation rules</li>
+          <li>Configuration and admin audit history</li>
+        </ul>
+      </article>
+
+      <article class="plan-card card">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">RCON Add-on</div>
+            <h3>Safe remote ARK operations.</h3>
+          </div>
+          <div class="plan-price">$1.99 <small>/ month</small></div>
+        </div>
+        <p>Give trusted staff access to approved ARK server actions without exposing an unrestricted RCON console.</p>
+        <ul class="plan-list">
+          <li>Live player list and lookups</li>
+          <li>Server status</li>
+          <li>Broadcast messages</li>
+          <li>Save-world actions</li>
+          <li>Kick / ban / unban</li>
+          <li>Restart and shutdown workflows</li>
+          <li>Per-command Discord permissions</li>
+          <li>Admin action logging</li>
+        </ul>
+        <div class="plan-note">Sensitive actions remain permission-checked, auditable, and subject to confirmation and expiration where appropriate.</div>
+      </article>
+
+      <article class="plan-card card">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">Insights Add-on</div>
+            <h3>See how the community is communicating.</h3>
+          </div>
+          <div class="plan-price">$1.49+ <small>/ month</small></div>
+        </div>
+        <p>Choose the same analytics feature set with either 7-day or 30-day event retention.</p>
+        <ul class="plan-list">
+          <li>7-Day Insights: $1.49/month</li>
+          <li>30-Day Insights: $2.49/month</li>
+          <li>Chat volume by server and cluster</li>
+          <li>Busiest and quietest maps</li>
+          <li>Busiest hours and days</li>
+          <li>ARK vs Discord activity</li>
+          <li>Rolling trends and comparisons</li>
+          <li>Exportable activity summaries</li>
+        </ul>
+        <div class="plan-note">Insights is designed around community-level patterns, not individual behavioral profiling.</div>
+      </article>
+    </div>
+
+    <div class="callout"><strong>Pricing rule:</strong> if you have to ask what something costs, what it includes, or whether another add-on is secretly required, we made the pricing too complicated.</div>
   </div>
 </section>
 
 <section class="section" id="architecture">
   <div class="shell architecture">
     <div>
-      <div class="eyebrow">Architecture direction</div>
-      <h2>Games plug into Nexus. Nexus does not belong to one game.</h2>
-      <p class="lead">The core should understand common concepts such as servers, players, messages, events, orders, deliveries, heartbeats, and organizations. Individual adapters translate each game's behavior into that shared language.</p>
+      <div class="eyebrow">Architecture</div>
+      <h2>One Nexus Core. Many ways in and out.</h2>
+      <p class="lead">Nexus separates what a community bought, what a connection can currently do, and what a person is allowed to do. Discord, the dashboard, Agents, and RCON remain distinct boundaries around one authoritative Core.</p>
     </div>
 
     <div class="arch-panel card">
       <div class="stack">
-        <div class="stack-row"><strong>Nexus Core</strong><span>Organizations, servers, authentication, auditing, health, API versioning.</span></div>
-        <div class="stack-row"><strong>Event Bus</strong><span>Common events such as chat.message, player.joined, server.offline, and shop.order.created.</span></div>
-        <div class="stack-row"><strong>Identity Layer</strong><span>Links community accounts to Discord and game-specific identities.</span></div>
-        <div class="stack-row"><strong>Game Adapters</strong><span>ARK, Minecraft, Palworld, Conan, and eventually community-built adapters.</span></div>
-        <div class="stack-row"><strong>Web + Discord</strong><span>Dashboards, websites, shops, chat routes, alerts, and administration.</span></div>
+        <div class="stack-row"><strong>Discord + Dashboard</strong><span>Present state, accept requests, and translate humans into Nexus actions.</span></div>
+        <div class="stack-row"><strong>API Boundary</strong><span>Authenticates requests, validates input, establishes actor context, and invokes Core.</span></div>
+        <div class="stack-row"><strong>Nexus Core</strong><span>Routing, permissions, entitlements, server registry, monitoring, automation, and action dispatch.</span></div>
+        <div class="stack-row"><strong>Agent / Direct RCON</strong><span>Connects outward, reports capabilities, observes ARK locally, and executes only supported actions.</span></div>
+        <div class="stack-row"><strong>ARK Servers</strong><span>The game remains the destination. Nexus manages the connections around it.</span></div>
       </div>
     </div>
   </div>
@@ -348,17 +471,65 @@ h3{font-size:1.45rem}
   <div class="shell">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Product principles</div>
-        <h2>Capabilities, not somebody else's configuration.</h2>
+        <div class="eyebrow">Security &amp; trust</div>
+        <h2>Trust identity narrowly. Authorize centrally.</h2>
       </div>
-      <p>Phoenix Clan Rising is planned as the first real-world proving ground, but PCR-specific assumptions should never become Nexus Core assumptions. Ember Nexus is being designed as a product that can take a different shape for every community that eventually uses it.</p>
+      <p>Nexus is designed around explicit boundaries. Agents do not get billing authority. Discord roles do not become permissions by magic. RCON does not become a raw command tunnel. Every layer gets only the authority it needs to do its actual job.</p>
     </div>
 
     <div class="principles">
-      <article class="principle card"><strong>User-owned configuration</strong><h3>Your routes. Your labels. Your currencies.</h3><p>Communities decide how Nexus behaves without editing source code for routine configuration.</p></article>
-      <article class="principle card"><strong>Modular by default</strong><h3>Use only what you need.</h3><p>A community should be able to run crosschat without commerce, commerce without cross-game chat, or build directly against the API.</p></article>
-      <article class="principle card"><strong>Secure by default</strong><h3>Isolation is architecture, not cleanup.</h3><p>Scoped credentials, authentication, tenant isolation, permissions, and audit trails belong in the foundation.</p></article>
-      <article class="principle card"><strong>Failure-safe</strong><h3>One broken piece should not eat the whole machine.</h3><p>Failed deliveries should be recoverable, disconnected servers should be contained, and money-moving workflows should be auditable.</p></article>
+      <article class="principle card">
+        <strong>Entitlements</strong>
+        <h3>What did the community buy?</h3>
+        <p>Plans and add-ons determine which product features the community may use.</p>
+      </article>
+      <article class="principle card">
+        <strong>Capabilities</strong>
+        <h3>What can this connection do right now?</h3>
+        <p>Agents and connectors advertise live capabilities such as chat, status, logs, RCON, or restart control.</p>
+      </article>
+      <article class="principle card">
+        <strong>Permissions</strong>
+        <h3>What may this person do?</h3>
+        <p>Human authorization is evaluated centrally and stays separate from plan ownership and connection capability.</p>
+      </article>
+      <article class="principle card">
+        <strong>Containment</strong>
+        <h3>One failure should stay one failure.</h3>
+        <p>A broken server, Discord outage, failed destination, or compromised Agent should not become a platform-wide incident.</p>
+      </article>
+    </div>
+
+    <div class="callout"><strong>Agent rule:</strong> the Agent observes locally, executes narrowly, and decides almost nothing. Nexus Core remains the brain.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Monitoring &amp; automation</div>
+        <h2>React to the real state, not the first noisy blip.</h2>
+      </div>
+      <p>Nexus monitoring is built around connection and capability health, with sustained-failure thresholds, incident lifecycles, recovery awareness, planned downtime, and flapping protection. Automation sits above that health model and re-checks reality before it acts.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card card">
+        <span class="num">CONNECTED</span>
+        <h3>Expected capabilities are healthy.</h3>
+        <p>The configured connection path is available and the functions Nexus expects for that server are working.</p>
+      </article>
+      <article class="feature-card card">
+        <span class="num">DEGRADED</span>
+        <h3>Keep using what still works.</h3>
+        <p>If logs remain available but RCON drops, Nexus can continue the healthy capability instead of declaring the entire server dead.</p>
+      </article>
+      <article class="feature-card card">
+        <span class="num">DISCONNECTED</span>
+        <h3>Isolate, recover, resume.</h3>
+        <p>Disconnected destinations stop receiving new work while healthy servers and routes continue independently.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -367,30 +538,30 @@ h3{font-size:1.45rem}
   <div class="shell">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Early roadmap</div>
-        <h2>Design the system before summoning the codebase.</h2>
+        <div class="eyebrow">Where it stands</div>
+        <h2>The foundation is locked. Production development comes next.</h2>
       </div>
-      <p>Ember Nexus is intentionally still in planning. The current roadmap starts with product identity, terminology, architecture, repository structure, and security thinking before the game-independent core is built and PCR becomes the first crosschat test environment.</p>
+      <p>Nexus is still pre-production, but it is no longer an undefined concept. The first ring of architecture is complete enough to begin MVP sequencing without reopening the entire product every time a new feature appears.</p>
     </div>
 
     <div class="roadmap">
-      <div class="phase"><b>PHASE 0</b><div><h3>Product Foundation</h3><p>Brand, terminology, product principles, repository structure, documentation, and initial security/threat modeling.</p></div></div>
-      <div class="phase"><b>PHASE 1</b><div><h3>Nexus Core</h3><p>Organizations, servers, API authentication, event ingestion, heartbeats, status, logging, and versioning.</p></div></div>
-      <div class="phase"><b>PHASE 2</b><div><h3>ARK Adapter + Crosschat</h3><p>PCR becomes the first production proving ground for ARK ↔ ARK ↔ Discord routing and connection monitoring.</p></div></div>
-      <div class="phase"><b>PHASE 3</b><div><h3>Nexus Dashboard</h3><p>No-code management for servers, adapters, routes, credentials, formatting, permissions, event logs, and health.</p></div></div>
-      <div class="phase"><b>PHASE 4–6</b><div><h3>Identity, Commerce + Automation</h3><p>Unified player identities, generic shop/fulfillment infrastructure, and configurable WHEN → IF → THEN workflows.</p></div></div>
-      <div class="phase"><b>PHASE 7–8</b><div><h3>Multi-Game + Productization</h3><p>Official adapters, Adapter SDK direction, external beta, deployment strategy, documentation, privacy controls, support, and future funding model.</p></div></div>
+      <div class="phase"><b>LOCKED</b><div><h3>Product Foundation</h3><p>ARK-first identity, Free/Premium boundaries, pricing, command philosophy, and connection methods.</p></div></div>
+      <div class="phase"><b>LOCKED</b><div><h3>Core Architecture</h3><p>Core components, Agent ↔ Core protocol, event flow, action lifecycle, storage boundaries, and database shape.</p></div></div>
+      <div class="phase"><b>LOCKED</b><div><h3>Security &amp; Reliability</h3><p>Trust boundaries, permissions, entitlement separation, failure recovery, monitoring, incidents, and automation safeguards.</p></div></div>
+      <div class="phase"><b>LOCKED</b><div><h3>Interfaces</h3><p>Discord integration and the API/dashboard boundary are designed around one authoritative Nexus Core.</p></div></div>
+      <div class="phase"><b>NEXT</b><div><h3>MVP Sequencing</h3><p>Define the smallest production build, implementation order, concrete schema, API inventory, onboarding flow, and first Agent proof-of-concept.</p></div></div>
+      <div class="phase"><b>LATER</b><div><h3>Beyond ARK</h3><p>Additional games, provider integrations, public API policy, commerce, broader identity systems, and multi-game abstractions come after Nexus ARK proves the model.</p></div></div>
     </div>
 
-    <p class="planning-note"><strong>Still on the workbench:</strong> Ember Nexus is not released software. The roadmap, supported games, adapters, deployment model, funding model, and individual planned capabilities can change as the product specification and architecture are finalized.</p>
+    <p class="planning-note"><strong>Pre-production notice:</strong> Nexus ARK is not released software yet. The product boundaries and architecture described here are the current locked direction, while implementation details, release timing, and provider compatibility may change during development.</p>
   </div>
 </section>
 
 <section class="product-cta">
   <div class="shell">
-    <div class="eyebrow">Still on the workbench</div>
-    <h2>Connect your games. Power your community.</h2>
-    <p class="lead">Ember Nexus is being shaped as the connection layer between the systems community owners already have to juggle. It is early, deliberately so. Right now the work is product definition before implementation.</p>
+    <div class="eyebrow">One brick at a time</div>
+    <h2>Connect the cluster. Build outward from there.</h2>
+    <p class="lead">Nexus ARK starts with the job communities need first: dependable cross-chat. Everything else is being built around that connection instead of piled on top of it all at once.</p>
     <div class="product-actions">
       <a class="btn primary" href="https://discord.gg/WRv4fGv2PG">Follow Nexus progress</a>
       <a class="btn secondary" href="/">Back to EmberForge</a>
@@ -421,7 +592,7 @@ h3{font-size:1.45rem}
       <h3>Help</h3>
       <a href="/support.html">Support</a>
       <a href="/security.html">Security</a>
-      <a href="mailto:ever_forge@outlook.com">Contact</a>
+      <a href="mailto:support@emberforgehq.com">Contact</a>
     </div>
   </div>
   <div class="shell footer-bottom">
