@@ -25,6 +25,7 @@ This repository contains the public EmberForgeHQ website, including:
 ├── index.html
 ├── ember-vault.html
 ├── ember-nexus.html
+├── ember-relay.html
 ├── creator.html
 ├── support.html
 ├── security.html
@@ -446,6 +447,7 @@ Which means there is almost certainly something being tinkered with right now.
 - Website: [https://emberforgehq.com](https://emberforgehq.com)
 - Ember Vault: [https://emberforgehq.com/ember-vault.html](https://emberforgehq.com/ember-vault.html)
 - Ember Nexus: [https://emberforgehq.com/ember-nexus.html](https://emberforgehq.com/ember-nexus.html)
+- Ember Relay: [https://emberforgehq.com/ember-relay.html](https://emberforgehq.com/ember-relay.html)
 - Creator: [https://emberforgehq.com/creator.html](https://emberforgehq.com/creator.html)
 - Support: [https://emberforgehq.com/support.html](https://emberforgehq.com/support.html)
 - Security: [https://emberforgehq.com/security.html](https://emberforgehq.com/security.html)
