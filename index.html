@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0c1218" />
-  <meta name="description" content="EmberForge builds practical community tools shaped by real use, including Ember Vault and Ember Nexus." />
+  <meta name="description" content="EmberForge builds practical community tools shaped by real use, including Ember Vault, Ember Nexus, and Ember Relay." />
   <title>EmberForge | Community tools, built in the Forge</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -150,7 +150,7 @@
     }
     .section-head p{margin:0;color:#9dafbc;max-width:680px;font-size:1.06rem}
 
-    .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
     .product-card{
       min-height:590px;position:relative;padding:42px;overflow:hidden;
       border:1px solid rgba(255,255,255,.07);
@@ -173,11 +173,19 @@
         linear-gradient(145deg,#121722,#0d121a)
     }
     .product-card.nexus::after{background:linear-gradient(90deg,var(--nexus),var(--cyan),transparent)}
+    .product-card.relay{
+      background:
+        radial-gradient(circle at 88% 12%,rgba(102,2,60,.34),transparent 20rem),
+        radial-gradient(circle at 12% 88%,rgba(0,255,255,.07),transparent 18rem),
+        linear-gradient(145deg,#17121a,#0e151a)
+    }
+    .product-card.relay::after{background:linear-gradient(90deg,#66023c,#00ffff,transparent)}
     .product-kicker{
       font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.18em
     }
     .vault .product-kicker{color:var(--vault-soft)}
     .nexus .product-kicker{color:var(--nexus-soft)}
+    .relay .product-kicker{color:#8ffcff}
     .product-name{font-size:clamp(3rem,4.3vw,4.7rem);margin-top:12px}
     .product-desc{color:#a8b8c4;margin:18px 0 24px;font-size:1.03rem}
     .status-pill{
@@ -189,6 +197,8 @@
     .vault .status-pill i{background:var(--vault);box-shadow:0 0 9px var(--vault)}
     .nexus .status-pill{color:#d9d2ff;background:rgba(131,103,255,.075);border-color:rgba(176,162,255,.16)}
     .nexus .status-pill i{background:var(--nexus-soft);box-shadow:0 0 9px var(--nexus)}
+    .relay .status-pill{color:#d9fbfb;background:rgba(102,2,60,.13);border-color:rgba(0,255,255,.16)}
+    .relay .status-pill i{background:#00ffff;box-shadow:0 0 9px #00ffff}
     .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
     .tag{
       padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);
@@ -196,6 +206,18 @@
     }
     .vault .tag{border-color:rgba(123,221,229,.15);color:#bfeef2;background:rgba(24,191,207,.045)}
     .nexus .tag{border-color:rgba(176,162,255,.15);color:#d6d0ff;background:rgba(131,103,255,.045)}
+    .relay .tag{border-color:rgba(0,255,255,.15);color:#bffeff;background:rgba(102,2,60,.11)}
+    .btn.relay-btn{color:#eaffff;border-color:rgba(0,255,255,.23);background:linear-gradient(135deg,rgba(102,2,60,.50),rgba(0,255,255,.08))}
+    .btn.relay-btn:hover{border-color:rgba(0,255,255,.55);background:linear-gradient(135deg,rgba(102,2,60,.68),rgba(0,255,255,.13));transform:translateY(-2px)}
+
+    .relay-board{position:absolute;inset:0;padding:16px;border:1px solid rgba(0,255,255,.16);background:rgba(6,12,16,.52)}
+    .relay-board-top{display:flex;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(0,255,255,.09);font-size:.75rem;color:#8da1aa}
+    .relay-rows{display:grid;gap:8px;margin-top:12px}
+    .relay-row{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;align-items:center;font-size:.72rem}
+    .relay-row b{color:#dcebef}
+    .relay-slots{display:flex;gap:4px}
+    .relay-slot{height:9px;flex:1;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025)}
+    .relay-slot.on{background:linear-gradient(90deg,rgba(102,2,60,.7),rgba(0,255,255,.45));border-color:rgba(0,255,255,.22)}
 
     .product-visual{height:180px;margin-top:26px;position:relative}
     .vault-panel{
@@ -357,7 +379,7 @@
           <div class="spark-line"></div>
           <span class="mini">Built in the Forge</span>
           <strong>Useful tools.<br>Human decisions.</strong>
-          <p>Built, tested, refined, and occasionally argued with. Ember Vault is operational on dedicated EmberForge infrastructure, Nexus ARK has its foundation and architecture locked, and EmberForge HQ is officially open for humans.</p>
+          <p>Built, tested, refined, and occasionally argued with. Ember Vault is operational on dedicated EmberForge infrastructure, Nexus ARK has its foundation and architecture locked, Ember Relay is taking shape from our existing coordination tooling, and EmberForge HQ is officially open for humans.</p>
           <div class="forge-seam" aria-hidden="true"></div>
           <div class="build-chip"><i></i> Workshop status: actively building</div>
         </div>
@@ -433,6 +455,35 @@
                 <div class="node n5">Discord</div>
                 <div class="node n6">Dashboard</div>
                 <div class="core">EMBER<br>NEXUS</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card relay reveal">
+            <div class="product-kicker">EmberForge Product 03</div>
+            <h3 class="product-name">Ember Relay</h3>
+            <div class="status-pill"><i></i>In development · evolving from Phoenix Coordinator</div>
+            <p class="product-desc">A lightweight coordination tool for community teams. Relay helps staff share availability, find overlap, submit schedules, and keep recurring reminders from becoming somebody's weekly spreadsheet ritual.</p>
+
+            <div class="tag-row" aria-label="Ember Relay highlights">
+              <span class="tag">Availability</span>
+              <span class="tag">Overlap</span>
+              <span class="tag">Scheduling</span>
+              <span class="tag">Reminders</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn relay-btn" href="/ember-relay.html">Explore Ember Relay</a>
+            </div>
+
+            <div class="product-visual" aria-label="Ember Relay availability concept">
+              <div class="relay-board">
+                <div class="relay-board-top"><strong>Team availability</strong><span>Overlap view</span></div>
+                <div class="relay-rows">
+                  <div class="relay-row"><b>Alex</b><div class="relay-slots"><i class="relay-slot on"></i><i class="relay-slot on"></i><i class="relay-slot"></i><i class="relay-slot"></i></div></div>
+                  <div class="relay-row"><b>Morgan</b><div class="relay-slots"><i class="relay-slot"></i><i class="relay-slot on"></i><i class="relay-slot on"></i><i class="relay-slot"></i></div></div>
+                  <div class="relay-row"><b>Riley</b><div class="relay-slots"><i class="relay-slot"></i><i class="relay-slot on"></i><i class="relay-slot on"></i><i class="relay-slot on"></i></div></div>
+                </div>
               </div>
             </div>
           </article>
