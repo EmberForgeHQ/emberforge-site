@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0c1218" />
-  <meta name="description" content="EmberForge builds practical community tools shaped by real use, including Ember Vault, Ember Nexus, and Ember Relay." />
+  <meta name="description" content="EmberForge builds practical community tools shaped by real use, including Ember Vault, Ember Nexus, Ember Relay, Nexus Agent and EmberForge Portal." />
   <title>EmberForge | Community tools, built in the Forge</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -340,6 +340,21 @@
       *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
       .reveal{opacity:1;transform:none}
     }
+  
+    /* Homepage refresh: preserve the Forge visual language. */
+    .hero{grid-template-columns:1.15fr .85fr;min-height:540px;padding:52px 0 64px}
+    .hero h1{font-size:clamp(2.8rem,4.65vw,4.7rem);text-wrap:initial}
+    .nav-links a.nav-cta,.nav-links a.nav-cta:hover{color:#051217}
+    .forge-visual{transform:none;min-width:0}
+    .platform-section{padding-top:28px}
+    .platform-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .platform-grid .product-card{min-height:0;display:flex;flex-direction:column;align-items:flex-start}
+    .platform-grid .product-name{font-size:clamp(2rem,3.5vw,3.4rem);margin-bottom:14px}
+    .platform-grid .btn{margin-top:auto}
+    .products-grid .product-name{font-size:clamp(2rem,3vw,3.2rem);margin-bottom:12px}
+    a:focus-visible{outline:2px solid #00ffff;outline-offset:4px}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.platform-grid{grid-template-columns:1fr}.nav-inner{flex-wrap:wrap;gap:8px;padding:8px 0}.nav-links{flex-wrap:wrap;gap:12px}.nav-links a:not(.nav-cta){display:inline-block}.nav-links .nav-cta{display:none}}
+    @media(max-width:620px){.hero h1{font-size:clamp(2.5rem,10vw,3.5rem)}.nav-links a{font-size:.82rem}.forge-visual{min-height:0}.hero{padding:40px 0 60px}}
   </style>
 </head>
 
@@ -353,9 +368,9 @@
 
       <div class="nav-links" aria-label="Primary navigation">
         <a href="/#products">Projects</a>
-        <a href="/#why">How we build</a>
+        <a href="/downloads.html">Downloads</a>
+        <a href="/changelog.html">Changelog</a>
         <a href="/creator.html">Meet the Creator</a>
-        <a href="/#behind">Behind the Forge</a>
         <a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a>
       </div>
     </div>
@@ -379,7 +394,7 @@
           <div class="spark-line"></div>
           <span class="mini">Built in the Forge</span>
           <strong>Useful tools.<br>Human decisions.</strong>
-          <p>Built, tested, refined, and occasionally argued with. Ember Vault is operational on dedicated EmberForge infrastructure, Nexus ARK has its foundation and architecture locked, Ember Relay is taking shape from our existing coordination tooling, and EmberForge HQ is officially open for humans.</p>
+          <p>Built, tested, refined, and occasionally argued with. Vault is operational, Relay has a tested internal foundation, and Nexus is moving toward mod-free game server connectivity. Our optional Nexus Agent and shared EmberForge Portal are in development.</p>
           <div class="forge-seam" aria-hidden="true"></div>
           <div class="build-chip"><i></i> Workshop status: actively building</div>
         </div>
@@ -432,8 +447,8 @@
           <article class="product-card nexus reveal">
             <div class="product-kicker">EmberForge Product 02</div>
             <h3 class="product-name">Ember Nexus</h3>
-            <div class="status-pill"><i></i>Nexus ARK foundation &amp; architecture locked · pre-production</div>
-            <p class="product-desc">The connection layer around game communities. Nexus starts with ARK cross-chat between servers and Discord, then expands through monitoring, automation, safe RCON controls, and community insights.</p>
+            <div class="status-pill"><i></i>Existing foundation · mod-free development planned</div>
+            <p class="product-desc">The connection layer around game communities. Our RCON-first approach starts with ARK, with planned cross-chat, monitoring, remote administration and community insights. No mandatory ARK mod or DevKit. Free access is planned for up to 10 individual game servers.</p>
 
             <div class="tag-row" aria-label="Ember Nexus highlights">
               <span class="tag">ARK-first</span>
@@ -491,8 +506,17 @@
       </div>
     </section>
 
-    <section class="section"><div class="shell"><div class="section-head"><div><div class="eyebrow">More from the workshop</div><h2>Tools around the tools.</h2></div><p>Two new directions, both in development. Follow the work without confusing a roadmap with a release.</p></div><div class="product-grid"><article class="product-card nexus"><h3 class="product-name">Ember Nexus Agent</h3><p class="product-desc">Optional paid host management for Windows and Linux. All supported Agent capabilities in one subscription.</p><a class="btn nexus-btn" href="/ember-nexus-agent.html">Explore the Agent</a></article><article class="product-card vault"><h3 class="product-name">EmberForge Portal</h3><p class="product-desc">A shared web interface for EmberForge products, starting with a read-only development integration for Vault.</p><a class="btn" href="/emberforge-portal.html">Explore Portal</a></article></div><p><a href="/downloads.html">Downloads</a> · <a href="/changelog.html">Development changelog</a></p></div></section>
-<section id="why">
+    <section id="platform" class="platform-section">
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">More from the workshop</div><h2>Tools around the tools.</h2></div><p>Two complementary projects in development. Follow their progress as we build, test and refine them.</p></div>
+        <div class="platform-grid">
+          <article class="product-card nexus"><div class="product-kicker">Optional infrastructure companion</div><h3 class="product-name">Ember Nexus Agent</h3><div class="status-pill"><i></i>Planned · paid subscription</div><p class="product-desc">Advanced host management for Windows and Linux: hardware and process monitoring, recovery, backups, updates and maintenance. One subscription is planned to unlock all supported Agent features. Installers will be available from EmberForge HQ when released.</p><a class="btn nexus-btn" href="/ember-nexus-agent.html">Explore the Agent</a></article>
+          <article class="product-card relay"><div class="product-kicker">Shared product interface</div><h3 class="product-name">EmberForge Portal</h3><div class="status-pill"><i></i>Development prototype · not released</div><p class="product-desc">One place to manage EmberForge tools. The Portal begins with a read-only Vault development integration, with community dashboards and additional product integrations planned.</p><a class="btn relay-btn" href="/emberforge-portal.html">Explore Portal</a></article>
+        </div>
+        <div class="hero-actions"><a class="btn secondary" href="/downloads.html">Downloads</a><a class="btn secondary" href="/changelog.html">Development changelog</a></div>
+      </div>
+    </section>
+    <section id="why">
       <div class="shell">
         <div class="section-head reveal">
           <div>
@@ -572,11 +596,16 @@
         <h3>Products</h3>
         <a href="/ember-vault.html">Ember Vault</a>
         <a href="/ember-nexus.html">Ember Nexus</a>
+        <a href="/ember-relay.html">Ember Relay</a>
+        <a href="/ember-nexus-agent.html">Ember Nexus Agent</a>
+        <a href="/emberforge-portal.html">EmberForge Portal</a>
       </div>
 
       <div class="footer-column">
         <h3>Help</h3>
-        <a href="/support.html">Support</a><a href="/downloads.html">Downloads</a><a href="/changelog.html">Changelog</a>
+        <a href="/support.html">Support</a>
+        <a href="/downloads.html">Downloads</a>
+        <a href="/changelog.html">Changelog</a>
         <a href="/security.html">Security</a>
         <a href="mailto:support@emberforgehq.com">Contact</a>
       </div>
