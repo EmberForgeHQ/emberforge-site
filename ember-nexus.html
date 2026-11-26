@@ -266,7 +266,7 @@ h3{font-size:1.45rem}
       <a href="/#products">Projects</a>
       <a href="/#why">How we build</a>
       <a href="/creator.html">Meet the Creator</a>
-      <a href="/support.html">Support</a>
+      <a href="/support.html">Support</a><a href="/downloads.html">Downloads</a><a href="/changelog.html">Changelog</a>
       <a class="nav-cta" href="https://discord.gg/WRv4fGv2PG">Join EmberForge HQ</a>
     </div>
   </div>
@@ -279,7 +279,7 @@ h3{font-size:1.45rem}
       <div class="product-kicker">EmberForge Product 02</div>
       <h1>Meet <span>Ember Nexus.</span></h1>
       <p class="lead">The connection layer around your game community. Nexus begins with ARK, linking servers and Discord through secure cross-chat infrastructure before expanding into monitoring, automation, safe remote controls, and community insights.</p>
-      <div class="status-pill"><span class="status-dot"></span>Nexus ARK foundation &amp; architecture locked • Pre-production</div>
+      <div class="status-pill"><span class="status-dot"></span>Foundation established · mod-free feasibility testing planned</div>
       <div class="product-actions">
         <a class="btn primary" href="#plans">Explore Nexus ARK</a>
         <a class="btn secondary" href="#architecture">How it works</a>
@@ -352,7 +352,7 @@ h3{font-size:1.45rem}
         <div class="eyebrow">Nexus ARK plans</div>
         <h2>Free connects your cluster. Premium operates it at scale.</h2>
       </div>
-      <p>Pricing is designed to be understandable without a scavenger hunt. Core handles communication. Premium adds operations. RCON adds safe server control. Insights adds community-level analytics.</p>
+      <p>Proposed launch pricing; subscriptions are not available for purchase yet. Core handles communication. Premium adds operations. RCON adds safe server control. Insights adds community-level analytics.</p>
     </div>
 
     <div class="pricing-grid">
@@ -366,8 +366,8 @@ h3{font-size:1.45rem}
         </div>
         <p>Full cross-chat for communities that want their ARK servers and Discord talking to each other without paying before the first useful message is sent.</p>
         <ul class="plan-list">
-          <li>Up to 15 connected ARK servers</li>
-          <li>Up to 2 clusters / chat groups</li>
+          <li>Up to 10 individual game servers (each ARK map counts once)</li><li>1 host machine/device allowance</li>
+          <li>1 cluster / chat group</li>
           <li>ARK → ARK cross-chat</li>
           <li>ARK → Discord and Discord → ARK</li>
           <li>Server aliases and basic formatting</li>
@@ -387,7 +387,7 @@ h3{font-size:1.45rem}
         </div>
         <p>Premium keeps Core intact and adds the operational layer for larger clusters, staff teams, monitoring, and configurable automation.</p>
         <ul class="plan-list">
-          <li>Unlimited connected ARK servers</li>
+          <li>Unlimited connected game servers, subject to fair use</li><li>Up to 5 host machines/devices</li><li>Additional 2-device packs: $1.99/month each</li>
           <li>Up to 10 clusters / chat groups</li>
           <li>Advanced routing and formatting</li>
           <li>Filters and moderation controls</li>
@@ -413,7 +413,7 @@ h3{font-size:1.45rem}
           <li>Broadcast messages</li>
           <li>Save-world actions</li>
           <li>Kick / ban / unban</li>
-          <li>Restart and shutdown workflows</li>
+          <li>Supported shutdown workflows; host-level restart requires additional access</li>
           <li>Per-command Discord permissions</li>
           <li>Admin action logging</li>
         </ul>
@@ -447,6 +447,7 @@ h3{font-size:1.45rem}
   </div>
 </section>
 
+<section class="section"><div class="shell"><div class="section-head"><div><div class="eyebrow">From the Forge</div><h2>No DevKit required.</h2></div><p>Nexus is designed around external RCON connections and supported server data, with ARK as the first game adapter. Capabilities are subject to testing.</p></div><div class="feature-grid"><article class="feature-card card"><h3>Direct RCON</h3><p>Core is intended to work without installing a mod or Agent. Basic monitoring and cross-chat come first.</p></article><article class="feature-card card"><h3>Optional paid Agent</h3><p>A separate subscription unlocks every supported Agent capability. <a href="/ember-nexus-agent.html">Explore the Agent</a>.</p></article><article class="feature-card card"><h3>Clear licensing</h3><p>Free supports 10 individual game servers and one device; Premium supports five devices with optional two-device packs. Device enforcement for direct RCON is still being designed.</p></article><article class="feature-card card"><h3>Privacy and independence</h3><p>Community-level insights, scoped permissions and an independently maintained codebase. No mandatory third-party management software.</p></article></div></div></section>
 <section class="section" id="architecture">
   <div class="shell architecture">
     <div>
@@ -539,7 +540,7 @@ h3{font-size:1.45rem}
     <div class="section-head">
       <div>
         <div class="eyebrow">Where it stands</div>
-        <h2>The foundation is locked. Production development comes next.</h2>
+        <h2>The foundation exists. Next comes a careful audit and mod-free testing.</h2>
       </div>
       <p>Nexus is still pre-production, but it is no longer an undefined concept. The first ring of architecture is complete enough to begin MVP sequencing without reopening the entire product every time a new feature appears.</p>
     </div>
@@ -549,8 +550,8 @@ h3{font-size:1.45rem}
       <div class="phase"><b>LOCKED</b><div><h3>Core Architecture</h3><p>Core components, Agent ↔ Core protocol, event flow, action lifecycle, storage boundaries, and database shape.</p></div></div>
       <div class="phase"><b>LOCKED</b><div><h3>Security &amp; Reliability</h3><p>Trust boundaries, permissions, entitlement separation, failure recovery, monitoring, incidents, and automation safeguards.</p></div></div>
       <div class="phase"><b>LOCKED</b><div><h3>Interfaces</h3><p>Discord integration and the API/dashboard boundary are designed around one authoritative Nexus Core.</p></div></div>
-      <div class="phase"><b>NEXT</b><div><h3>MVP Sequencing</h3><p>Define the smallest production build, implementation order, concrete schema, API inventory, onboarding flow, and first Agent proof-of-concept.</p></div></div>
-      <div class="phase"><b>LATER</b><div><h3>Beyond ARK</h3><p>Additional games, provider integrations, public API policy, commerce, broader identity systems, and multi-game abstractions come after Nexus ARK proves the model.</p></div></div>
+      <div class="phase"><b>NEXT</b><div><h3>MVP Sequencing</h3><p>Audit existing code and schema, then test RCON chat, player lists, logging and connectivity on isolated ASA servers.</p></div></div>
+      <div class="phase"><b>LATER</b><div><h3>Beyond ARK</h3><p>ARK is the first game adapter. Additional games and the optional Agent follow after the core proves itself.</p></div></div>
     </div>
 
     <p class="planning-note"><strong>Pre-production notice:</strong> Nexus ARK is not released software yet. The product boundaries and architecture described here are the current locked direction, while implementation details, release timing, and provider compatibility may change during development.</p>
@@ -587,11 +588,11 @@ h3{font-size:1.45rem}
       <h3>Products</h3>
       <a href="/ember-vault.html">Ember Vault</a>
       <a href="/ember-nexus.html">Ember Nexus</a>
-      <a href="/ember-relay.html">Ember Relay</a>
+      <a href="/ember-relay.html">Ember Relay</a><a href="/ember-nexus-agent.html">Nexus Agent</a><a href="/emberforge-portal.html">Portal</a>
     </div>
     <div class="footer-column">
       <h3>Help</h3>
-      <a href="/support.html">Support</a>
+      <a href="/support.html">Support</a><a href="/downloads.html">Downloads</a><a href="/changelog.html">Changelog</a>
       <a href="/security.html">Security</a>
       <a href="mailto:support@emberforgehq.com">Contact</a>
     </div>
